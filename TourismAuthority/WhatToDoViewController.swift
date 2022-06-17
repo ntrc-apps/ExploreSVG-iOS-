@@ -90,8 +90,9 @@ class WhatToDoViewController: UIViewController,UITableViewDataSource,UITableView
             super.didReceiveMemoryWarning()
         }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped")
+        performSegue(withIdentifier: "whattodoseg", sender: self)
     }
         
 
