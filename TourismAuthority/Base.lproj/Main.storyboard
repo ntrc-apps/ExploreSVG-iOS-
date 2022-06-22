@@ -794,13 +794,13 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ntrclogofinal" translatesAutoresizingMaskIntoConstraints="NO" id="7yo-B2-M3u">
-                                                                    <rect key="frame" x="5" y="0.0" width="404" height="330"/>
+                                                                    <rect key="frame" x="5" y="0.0" width="404" height="295"/>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6m-0W-sfs" userLabel="taxiTitleHolder">
                                                                     <rect key="frame" x="0.0" y="300" width="414" height="30"/>
                                                                     <subviews>
-                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0y-Rb-t9q">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Title" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0y-Rb-t9q">
+                                                                            <rect key="frame" x="0.0" y="-10" width="414" height="40"/>
                                                                             <color key="textColor" systemColor="linkColor"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -810,7 +810,7 @@
                                                                     <constraints>
                                                                         <constraint firstItem="T0y-Rb-t9q" firstAttribute="leading" secondItem="I6m-0W-sfs" secondAttribute="leading" id="apL-C9-p5K"/>
                                                                         <constraint firstAttribute="trailing" secondItem="T0y-Rb-t9q" secondAttribute="trailing" id="bOa-Uf-duQ"/>
-                                                                        <constraint firstItem="T0y-Rb-t9q" firstAttribute="top" secondItem="I6m-0W-sfs" secondAttribute="top" id="rjg-t9-N3I"/>
+                                                                        <constraint firstItem="T0y-Rb-t9q" firstAttribute="top" secondItem="I6m-0W-sfs" secondAttribute="top" constant="-10" id="rjg-t9-N3I"/>
                                                                         <constraint firstAttribute="bottom" secondItem="T0y-Rb-t9q" secondAttribute="bottom" id="vxU-Cs-96R"/>
                                                                     </constraints>
                                                                 </view>
@@ -818,7 +818,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="7yo-B2-M3u" firstAttribute="top" secondItem="MI8-y8-m9l" secondAttribute="top" id="2TL-7d-cE1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="I6m-0W-sfs" secondAttribute="trailing" id="Skb-qm-BNR"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7yo-B2-M3u" secondAttribute="bottom" id="mBL-Wc-hKh"/>
+                                                                <constraint firstAttribute="bottom" secondItem="7yo-B2-M3u" secondAttribute="bottom" constant="35" id="mBL-Wc-hKh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="I6m-0W-sfs" secondAttribute="bottom" id="orR-27-XWO"/>
                                                                 <constraint firstItem="7yo-B2-M3u" firstAttribute="leading" secondItem="MI8-y8-m9l" secondAttribute="leading" constant="5" id="pJy-fS-aBv"/>
                                                                 <constraint firstItem="I6m-0W-sfs" firstAttribute="top" secondItem="MI8-y8-m9l" secondAttribute="top" constant="300" id="uMZ-yl-Ben"/>
