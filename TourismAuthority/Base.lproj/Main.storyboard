@@ -115,13 +115,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-aq-StU">
-                                <rect key="frame" x="0.0" y="882" width="414" height="14"/>
+                                <rect key="frame" x="0.0" y="882" width="414" height="49"/>
                                 <items>
                                     <barButtonItem id="VCg-zs-M5b"/>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDK-dH-4f7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="760"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2BJ-FF-Kc4">
                                         <rect key="frame" x="0.0" y="145" width="414" height="83"/>
@@ -144,10 +144,10 @@
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QkQ-Q9-BDc">
-                                        <rect key="frame" x="0.0" y="190" width="414" height="535"/>
+                                        <rect key="frame" x="0.0" y="190" width="414" height="570"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-9g-3FX">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="535"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="570"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" name="AccentColor"/>
                                                 <prototypes>
@@ -221,7 +221,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8re-9e-heR">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="760"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZmK-1m-Ns7"/>
@@ -414,17 +414,17 @@
         <scene sceneID="XWC-wd-SOg">
             <objects>
                 <viewController id="gO2-oQ-Otb" customClass="TourOperatorsViewController" customModule="TourismAuthority" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="37h-H2-ukU">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="37h-H2-ukU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RH2-uS-mXX">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RH2-uS-mXX">
                                 <rect key="frame" x="0.0" y="852" width="414" height="44"/>
                                 <items>
                                     <barButtonItem id="Jxw-aZ-Yc2"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qle-YD-C4H">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qle-YD-C4H">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFV-7K-5Et">
@@ -447,10 +447,10 @@
                                             </textView>
                                         </subviews>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owp-hQ-Eqq">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Owp-hQ-Eqq">
                                         <rect key="frame" x="0.0" y="190" width="414" height="535"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lxf-tA-1fn">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lxf-tA-1fn">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="535"/>
                                                 <color key="separatorColor" name="AccentColor"/>
                                                 <prototypes>
@@ -524,7 +524,7 @@
                                     <constraint firstItem="Owp-hQ-Eqq" firstAttribute="leading" secondItem="qle-YD-C4H" secondAttribute="leading" id="wE4-BJ-PKN"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-jG-99G">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-jG-99G">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </view>
                         </subviews>
@@ -1100,13 +1100,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-UE-fde" userLabel="MainView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="1399"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcc-YD-FOg" userLabel="TopViewHolder">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="849"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Attraction" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQZ-S3-YcR" userLabel="AttractionTitle">
-                                                <rect key="frame" x="10" y="150" width="404" height="25"/>
+                                                <rect key="frame" x="10" y="150" width="404" height="699"/>
                                                 <color key="textColor" systemColor="linkColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1116,7 +1116,7 @@
                                                 <color key="backgroundColor" systemColor="linkColor"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ntrclogofinal" translatesAutoresizingMaskIntoConstraints="NO" id="Rfy-fx-mdL">
-                                                <rect key="frame" x="94" y="13" width="226" height="112"/>
+                                                <rect key="frame" x="94" y="13" width="226" height="786"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1135,10 +1135,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-WQ-LBI" userLabel="TableViewHolder">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="525"/>
+                                        <rect key="frame" x="0.0" y="200" width="414" height="1199"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q3j-Wx-026" userLabel="WhatToDoFragmentTableView">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="525"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1199"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1277,10 +1277,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7z-vi-7NU" userLabel="MainView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1390"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discoversvglogo" translatesAutoresizingMaskIntoConstraints="NO" id="nWI-ri-paT">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="214"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2g-i8-g9a" userLabel="line">
                                         <rect key="frame" x="6" y="198" width="402" height="10"/>
@@ -1296,22 +1296,22 @@
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-v9-XJH" userLabel="ContactInfoViewHolder">
-                                        <rect key="frame" x="0.0" y="210" width="414" height="830"/>
+                                        <rect key="frame" x="0.0" y="210" width="414" height="258"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Contact Information" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFB-Wn-zld" userLabel="Header1">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                                 <color key="textColor" systemColor="tintColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="The Ministry of Tourism is located on the 2nd Floor, NIS Building, Upper Bay Street, Kingstown, St. Vincent and The Grenadines." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4t-og-wJq" userLabel="Subtext1">
-                                                <rect key="frame" x="0.0" y="40" width="414" height="696"/>
+                                                <rect key="frame" x="0.0" y="40" width="414" height="124"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-Na-wSG" userLabel="TeleViewHolder">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="646"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="74"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Telephone No:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-1s-jVe" userLabel="subheader1">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1330,7 +1330,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWh-l8-RtO" userLabel="WebsiteViewHolder">
-                                                <rect key="frame" x="0.0" y="150" width="414" height="646"/>
+                                                <rect key="frame" x="0.0" y="150" width="414" height="74"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Website:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-rQ-vJc" userLabel="subheader2">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1349,7 +1349,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qj-Tu-yz0" userLabel="EmailViewHolder">
-                                                <rect key="frame" x="0.0" y="180" width="414" height="646"/>
+                                                <rect key="frame" x="0.0" y="180" width="414" height="74"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="email:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVQ-hr-QFr" userLabel="subheader2">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1392,34 +1392,34 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pT-ve-Ifi" userLabel="PostalAddressandHoursViewHolder">
-                                        <rect key="frame" x="0.0" y="420" width="414" height="970"/>
+                                        <rect key="frame" x="0.0" y="420" width="414" height="398"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Postal Address" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kho-XQ-YWo" userLabel="Header2">
-                                                <rect key="frame" x="0.0" y="0.0" width="226" height="666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="94"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.47843137250000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Permanent Secretary C/o Ministry of Tourism, Sports and Culture P.O Box 834 Kingstown St. Vincent and the Grenadines" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uR-x1-wUE" userLabel="Subtext2">
-                                                <rect key="frame" x="0.0" y="40" width="414" height="802"/>
+                                                <rect key="frame" x="0.0" y="40" width="414" height="230"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Operational Hours" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="66a-Q6-gKY" userLabel="Header3">
-                                                <rect key="frame" x="0.0" y="115" width="414" height="669"/>
+                                                <rect key="frame" x="0.0" y="115" width="414" height="97"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.47843137250000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Mondays - Fridays" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bSP-kg-cR2" userLabel="Subtext3">
-                                                <rect key="frame" x="0.0" y="160" width="414" height="634"/>
+                                                <rect key="frame" x="0.0" y="160" width="414" height="62"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="8:00 a.m. - 4:15 p.m." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="33Y-tc-Qtx" userLabel="Subtext4">
-                                                <rect key="frame" x="0.0" y="178" width="414" height="636"/>
+                                                <rect key="frame" x="0.0" y="178" width="414" height="64"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1470,7 +1470,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-A7-MH1" userLabel="GradientView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1390"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rks-Xt-WWt"/>
