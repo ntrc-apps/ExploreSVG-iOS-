@@ -62,6 +62,8 @@ class TourViewTableViewCell: UITableViewCell {
         
         title = "Tour Operators"
     }
+        
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return tour.count
         }
@@ -82,7 +84,7 @@ class TourViewTableViewCell: UITableViewCell {
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("tapped")
+            performSegue(withIdentifier: "seg1", sender: self)
             
 }
 

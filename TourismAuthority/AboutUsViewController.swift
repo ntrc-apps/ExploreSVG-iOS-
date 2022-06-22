@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class AboutUsViewController: UIViewController{
+class TaxiF: UIViewController{
     @IBOutlet weak var textviewholder: UIView!
     override func viewDidLoad() {
         

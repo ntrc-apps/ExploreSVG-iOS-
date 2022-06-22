@@ -124,6 +124,7 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
             //var getAttraction = data
             WhatToDoList.ListSiteDescription = (data as! NSDictionary)["sitedescription"] as? String
             WhatToDoList.ListSiteTypeId = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+            //WhatToDoList.ListId = Int(((data as! NSDictionary)["typeid"] as? String)!)!
             WhatToDoList.ListName = (data as! NSDictionary)["sitename"] as? String
             WhatToDoList.ListBackgroudImage = (data as! NSDictionary)["image_url"] as? String
             //attractionCat.Listdisplayid = Int(((data as! NSDictionary)["display"] as? String)!)!

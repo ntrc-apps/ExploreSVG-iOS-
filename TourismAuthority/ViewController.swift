@@ -27,6 +27,18 @@ class ViewController: UIViewController{
     @IBOutlet weak var bottomtoolbar: UIToolbar!
     var menuOut = true
     
+    struct location {
+        var name: String? = nil
+        var description: String? = nil
+        var id: Int = 0
+        var siteType: Int = 0
+        var latitude: Double = 0.0
+        var longnitude: Double = 0.0
+        var image: String? = nil
+    }
+    
+    var locations: [location] = []
+    
 override func viewDidLoad() {
 super.viewDidLoad()
     
@@ -38,8 +50,7 @@ super.viewDidLoad()
     mapView = MapView(frame: view.bounds,mapInitOptions: options)
     mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     view.addSubview(mapView)
-    view.addSubview(toolbar2)
-    view.addSubview(toolbar3)
+    
 
    
     
@@ -86,6 +97,7 @@ weak var mapView: MapView?
 init(mapView: MapView) {
 self.mapView = mapView
     
+    
 }
     
 public func locationUpdate(newLocation: Location) {
@@ -93,4 +105,97 @@ public func locationUpdate(newLocation: Location) {
 to: CameraOptions(center: newLocation.coordinate))
 }
 }
+    
+    func AnnotationsParseData(){
+        
+        locations = []
+
+    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+        
+    //creating NSMutableURLRequest
+    let request = NSMutableURLRequest(url: requestURL! as URL)
+           
+           //setting the method to post
+    request.httpMethod = "POST"
+           
+           //creating a task to send the post request
+    let session = URLSession.shared.dataTask(with: request as URLRequest){
+               data, response, error in
+               
+               //exiting if there is some error
+               if error != nil{
+                   print("error is \(String(describing: error))")
+                   return;
+               }
+               
+               //parsing the response
+        do {
+                       //converting resonse to NSArray
+            let data = try? Data(contentsOf: requestURL! as URL)
+            let locData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+            print(locData)
+            
+            for i in 0...locData.count-1{
+                let data = locData[i]
+                
+                var newLocation = location()
+                
+                //var getAttraction = data
+                newLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+                newLocation.name = (data as! NSDictionary)["sitename"] as? String
+                newLocation.description = (data as! NSDictionary)["description"] as? String
+                newLocation.latitude = Double(((data as! NSDictionary)["latitude"] as? String)!)!
+                newLocation.longnitude = Double(((data as! NSDictionary)["longitude"] as? String)!)!
+                newLocation.image = (data as! NSDictionary)["image_url"] as? String
+                newLocation.siteType = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+                //attractionCat.Listdisplayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+                
+//               MGLPointAnnotation()
+//                coordinate = CLLocationCoordinate2D(latitude: newLocation.latitude!, longitude: newLocation.longnitude!)
+//                newLocation.name
+//                
+//                mapView.addAnnotation(schoolMarker)
+//                markerCache.append(schoolMarker)
+//                locations.append(newLocation)
+//                
+//                self.locations.append(newLocation)
+//                
+                
+                
+    //                let eachAttraction = data as! NSDictionary [String: Any]
+    //                let categoryId = eachAttraction["typeid"] as! Int
+    //                let categoryName = eachAttraction["sitedescription"] as? String
+    //                let categoryImage = UIImage(contentsOfFile: eachAttraction["image"] as! String)
+    //                let displayid = eachAttraction["display"] as! Int
+    //
+    //                self.attractions.append(attractionsCategory(categoryId: categoryId, categoryName: categoryName!, categoryImage: categoryImage!, displayid: displayid))
+    //
+                
+            }
+          
+//            DispatchQueue.main.async {
+//                self.WhatToDoFragmentTableView.reloadData()
+//            }
+            
+    //            for i in 0...locResponse.count-1 {
+    //                let data = locResponse[i]
+    //
+    //                //var attractionsCategory = attractionsCategory(categoryId: Int, categoryName: String, categoryImage: String, displayid: Int)
+    ////                attractionsCategory.categoryId = (data as! NSDictionary)["typeid"] as? Int
+    ////                attractionsCategory.categoryName = (data as! NSDictionary)["sitedescription"] as? String
+    ////                attractionsCategory.categoryImage = (data as! NSDictionary)["image"] as? String
+                
+         
+            
+            }
+        catch{
+                do {
+                   print("error 2")
+               }
+           }
+           //executing the task
+           
+    }
+    session.resume()
+    }
 }

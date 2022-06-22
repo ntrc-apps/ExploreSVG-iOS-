@@ -19,6 +19,10 @@ class WhatToDoViewTableViewCell: UITableViewCell {
         
     imageholder.layer.cornerRadius = 5.0
     imageholder.layer.masksToBounds = true
+        imageholder.layer.shadowColor = UIColor.black.cgColor
+        imageholder.layer.shadowOpacity = 0.3
+        imageholder.layer.shadowOffset = CGSize(width: 10,height: 10)
+        imageholder.layer.shadowRadius = 5
   
 }
 }
