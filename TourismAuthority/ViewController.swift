@@ -11,10 +11,17 @@ import MapboxDirections
 import MapboxCoreNavigation
 import MapboxNavigation
 import CoreLocation
+import MapboxNavigationNative
 import SwiftUI
  
-class ViewController: UIViewController{
+class ViewController: UIViewController, AnnotationInteractionDelegate{
     
+    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
+        
+        print("Annotations tapped: \(annotations)")
+    }
+    
+    let satelliteMapStyle = "mapbox://styles/ntrcsvg/cihng4ycb005m92jaeyqwtj87"
      var mapView: MapView!
     internal var cameraLocationConsumer: CameraLocationConsumer!
     @IBOutlet weak var stackView: UIStackView!
@@ -47,11 +54,18 @@ super.viewDidLoad()
     title = "Discover SVG"
     
    
-    mapView = MapView(frame: view.bounds,mapInitOptions: options)
     mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    
+    // Set the map’s center coordinate and zoom level.
+   
     view.addSubview(mapView)
     
-
+    let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+    
+    pointAnnotationManager.delegate = self
+    
+    
+    //mapView.st = URL(string: satelliteMapStyle)
    
     
     cameraLocationConsumer = CameraLocationConsumer(mapView: mapView)
@@ -108,6 +122,8 @@ to: CameraOptions(center: newLocation.coordinate))
     
     func AnnotationsParseData(){
         
+        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+        
         locations = []
 
     let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
@@ -138,9 +154,9 @@ to: CameraOptions(center: newLocation.coordinate))
             for i in 0...locData.count-1{
                 let data = locData[i]
                 
-                var newLocation = location()
                 
-                //var getAttraction = data
+var newLocation = location()
+                
                 newLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
                 newLocation.name = (data as! NSDictionary)["sitename"] as? String
                 newLocation.description = (data as! NSDictionary)["description"] as? String
@@ -148,44 +164,11 @@ to: CameraOptions(center: newLocation.coordinate))
                 newLocation.longnitude = Double(((data as! NSDictionary)["longitude"] as? String)!)!
                 newLocation.image = (data as! NSDictionary)["image_url"] as? String
                 newLocation.siteType = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
-                //attractionCat.Listdisplayid = Int(((data as! NSDictionary)["display"] as? String)!)!
-                
-//               MGLPointAnnotation()
-//                coordinate = CLLocationCoordinate2D(latitude: newLocation.latitude!, longitude: newLocation.longnitude!)
-//                newLocation.name
-//                
-//                mapView.addAnnotation(schoolMarker)
-//                markerCache.append(schoolMarker)
-//                locations.append(newLocation)
-//                
-//                self.locations.append(newLocation)
-//                
-                
-                
-    //                let eachAttraction = data as! NSDictionary [String: Any]
-    //                let categoryId = eachAttraction["typeid"] as! Int
-    //                let categoryName = eachAttraction["sitedescription"] as? String
-    //                let categoryImage = UIImage(contentsOfFile: eachAttraction["image"] as! String)
-    //                let displayid = eachAttraction["display"] as! Int
-    //
-    //                self.attractions.append(attractionsCategory(categoryId: categoryId, categoryName: categoryName!, categoryImage: categoryImage!, displayid: displayid))
-    //
+    
                 
             }
           
-//            DispatchQueue.main.async {
-//                self.WhatToDoFragmentTableView.reloadData()
-//            }
-            
-    //            for i in 0...locResponse.count-1 {
-    //                let data = locResponse[i]
-    //
-    //                //var attractionsCategory = attractionsCategory(categoryId: Int, categoryName: String, categoryImage: String, displayid: Int)
-    ////                attractionsCategory.categoryId = (data as! NSDictionary)["typeid"] as? Int
-    ////                attractionsCategory.categoryName = (data as! NSDictionary)["sitedescription"] as? String
-    ////                attractionsCategory.categoryImage = (data as! NSDictionary)["image"] as? String
-                
-         
+
             
             }
         catch{

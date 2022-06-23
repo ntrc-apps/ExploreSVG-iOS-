@@ -8,22 +8,37 @@
 import UIKit
 import SwiftUI
 
-class TourFragmentViewController: UIViewController{
+class TourFragmentViewTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var DescriptionView: UITextView!
+    @IBOutlet weak var Title: UIView!
     
+    override func awakeFromNib() {
+            super.awakeFromNib()
+        
+        DescriptionView.layer.cornerRadius = 5.0
+        DescriptionView.layer.masksToBounds = true
+  
+}
+
+}
     
-    @IBOutlet weak var TitleHolder: UIView!
-   
-    @IBOutlet weak var descriptionView: UITextView!
-    
-    
+    class TourFragmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
+        
+        
+  
+        @IBOutlet weak var tourFragmentTableView: UITableView!
+        
     override func viewDidLoad() {
     super.viewDidLoad()
         
-        TitleHolder.layer.cornerRadius = 5.0
-        TitleHolder.layer.masksToBounds = true
+    
+        tourFragmentTableView.delegate = self
+        tourFragmentTableView.dataSource = self
         
-        descriptionView.layer.cornerRadius = 5.0
-        descriptionView.layer.masksToBounds = true
+        
+       
         
 //        let layer = CAGradientLayer()
 //               layer.frame = view.bounds
@@ -32,4 +47,15 @@ class TourFragmentViewController: UIViewController{
 //        
         
     }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell =  tourFragmentTableView.dequeueReusableCell(withIdentifier: "TourFragmentTableCell", for: indexPath)as!TourFragmentViewTableViewCell
+            
+            return cell
+        }
 }
+
