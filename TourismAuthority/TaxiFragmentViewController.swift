@@ -17,21 +17,38 @@ class TaxiFragmentViewTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        OperatorInfo.layer.cornerRadius = 5.0
-        OperatorInfo.layer.masksToBounds = true
+//        OperatorTitle.layer.cornerRadius = 5.0
+//        OperatorTitle.layer.masksToBounds = true
         
        
     }
 }
 
-class TaxiFragmentViewController: UIViewController{
+class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
+        
+        return cell
+    }
+    
     @IBOutlet weak var OperatorTable: UITableView!
     
  
     override func viewDidLoad() {
+        
+        OperatorTable.delegate = self
+        OperatorTable.dataSource = self
 
     super.viewDidLoad()
-        title = "Taxi Operators"
+        title = ""
     }
+    
+    
 }
 

@@ -59,7 +59,7 @@ class TaxisViewController: UIViewController{
 extension TaxisViewController: UITableViewDelegate{
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped")
+       performSegue(withIdentifier: "seg2", sender: self)
     }
         
 

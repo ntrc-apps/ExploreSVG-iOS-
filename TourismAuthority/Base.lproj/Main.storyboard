@@ -1358,10 +1358,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7z-vi-7NU" userLabel="MainView">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="1390"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discoversvglogo" translatesAutoresizingMaskIntoConstraints="NO" id="nWI-ri-paT">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="244"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="786"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2g-i8-g9a" userLabel="line">
                                         <rect key="frame" x="6" y="198" width="416" height="10"/>
@@ -1377,22 +1377,22 @@
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-v9-XJH" userLabel="ContactInfoViewHolder">
-                                        <rect key="frame" x="0.0" y="210" width="428" height="288"/>
+                                        <rect key="frame" x="0.0" y="210" width="428" height="830"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Contact Information" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFB-Wn-zld" userLabel="Header1">
-                                                <rect key="frame" x="0.0" y="0.0" width="428" height="114"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="656"/>
                                                 <color key="textColor" systemColor="tintColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="The Ministry of Tourism is located on the 2nd Floor, NIS Building, Upper Bay Street, Kingstown, St. Vincent and The Grenadines." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4t-og-wJq" userLabel="Subtext1">
-                                                <rect key="frame" x="0.0" y="40" width="428" height="154"/>
+                                                <rect key="frame" x="0.0" y="40" width="428" height="696"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-Na-wSG" userLabel="TeleViewHolder">
-                                                <rect key="frame" x="0.0" y="120" width="428" height="104"/>
+                                                <rect key="frame" x="0.0" y="120" width="428" height="646"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Telephone No:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqW-1s-jVe" userLabel="subheader1">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1411,7 +1411,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWh-l8-RtO" userLabel="WebsiteViewHolder">
-                                                <rect key="frame" x="0.0" y="150" width="428" height="104"/>
+                                                <rect key="frame" x="0.0" y="150" width="428" height="646"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Website:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-rQ-vJc" userLabel="subheader2">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1430,7 +1430,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qj-Tu-yz0" userLabel="EmailViewHolder">
-                                                <rect key="frame" x="0.0" y="180" width="428" height="104"/>
+                                                <rect key="frame" x="0.0" y="180" width="428" height="646"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="email:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVQ-hr-QFr" userLabel="subheader2">
                                                         <rect key="frame" x="-0.66666666666666663" y="-10" width="428" height="45"/>
@@ -1473,34 +1473,34 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pT-ve-Ifi" userLabel="PostalAddressandHoursViewHolder">
-                                        <rect key="frame" x="0.0" y="420" width="428" height="428"/>
+                                        <rect key="frame" x="0.0" y="420" width="428" height="970"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Postal Address" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kho-XQ-YWo" userLabel="Header2">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="124"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="666"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.47843137250000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Permanent Secretary C/o Ministry of Tourism, Sports and Culture P.O Box 834 Kingstown St. Vincent and the Grenadines" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uR-x1-wUE" userLabel="Subtext2">
-                                                <rect key="frame" x="0.0" y="40" width="428" height="260"/>
+                                                <rect key="frame" x="0.0" y="40" width="428" height="802"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Operational Hours" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="66a-Q6-gKY" userLabel="Header3">
-                                                <rect key="frame" x="0.0" y="115" width="428" height="127"/>
+                                                <rect key="frame" x="0.0" y="115" width="428" height="669"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.47843137250000001" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Mondays - Fridays" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bSP-kg-cR2" userLabel="Subtext3">
-                                                <rect key="frame" x="0.0" y="160" width="428" height="92"/>
+                                                <rect key="frame" x="0.0" y="160" width="428" height="634"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="8:00 a.m. - 4:15 p.m." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="33Y-tc-Qtx" userLabel="Subtext4">
-                                                <rect key="frame" x="0.0" y="178" width="428" height="94"/>
+                                                <rect key="frame" x="0.0" y="178" width="428" height="636"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1551,7 +1551,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-A7-MH1" userLabel="GradientView">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="1390"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rks-Xt-WWt"/>
@@ -1579,7 +1579,7 @@
         <!--Taxi Fragment View Controller-->
         <scene sceneID="Ay1-Yl-i0E">
             <objects>
-                <viewController id="zfn-lN-0om" customClass="TaxiFragmentViewController" sceneMemberID="viewController">
+                <viewController id="zfn-lN-0om" customClass="TaxiFragmentViewController" customModule="TourismAuthority" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uuH-ub-aql">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1591,7 +1591,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-Z1-4Qi" customClass="TaxiFragmentViewTableViewCell" customModule="TourismAuthority" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaxiFragmentTableViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-Z1-4Qi" customClass="TaxiFragmentViewTableViewCell" customModule="TourismAuthority" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="725"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VL0-Z1-4Qi" id="eOk-vx-W1F">
@@ -1604,9 +1604,6 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nys-R2-Ona" userLabel="ImageTitleHolder">
                                                                     <rect key="frame" x="0.0" y="0.0" width="428" height="325"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hazecotours" translatesAutoresizingMaskIntoConstraints="NO" id="Zyv-YN-eaC" userLabel="DesImage">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="480"/>
-                                                                        </imageView>
                                                                         <view alpha="0.75" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ig3-jT-fYC" userLabel="TitleHolder">
                                                                             <rect key="frame" x="15" y="288" width="398" height="37"/>
                                                                             <subviews>
@@ -1625,6 +1622,9 @@
                                                                                 <constraint firstItem="jhm-hj-xCI" firstAttribute="leading" secondItem="Ig3-jT-fYC" secondAttribute="leading" id="P3l-68-Esc"/>
                                                                             </constraints>
                                                                         </view>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hazecotours" translatesAutoresizingMaskIntoConstraints="NO" id="Zyv-YN-eaC" userLabel="DesImage">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="325"/>
+                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="Ig3-jT-fYC" firstAttribute="top" secondItem="nys-R2-Ona" secondAttribute="top" constant="288" id="0jZ-h6-c8X"/>
@@ -1632,7 +1632,7 @@
                                                                         <constraint firstItem="Zyv-YN-eaC" firstAttribute="leading" secondItem="nys-R2-Ona" secondAttribute="leading" id="IqN-xm-tyH"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Ig3-jT-fYC" secondAttribute="trailing" constant="15" id="Oy1-Mw-FY8"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Zyv-YN-eaC" secondAttribute="trailing" id="Qyv-hI-5jy"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="Zyv-YN-eaC" secondAttribute="bottom" constant="-155" id="S23-cC-boV"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Zyv-YN-eaC" secondAttribute="bottom" id="S23-cC-boV"/>
                                                                         <constraint firstAttribute="bottom" secondItem="Ig3-jT-fYC" secondAttribute="bottom" id="j08-lb-dVv"/>
                                                                         <constraint firstItem="Zyv-YN-eaC" firstAttribute="top" secondItem="nys-R2-Ona" secondAttribute="top" id="tWA-oz-Paf"/>
                                                                     </constraints>
