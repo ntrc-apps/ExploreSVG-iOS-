@@ -64,21 +64,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-qR-V8U">
-                                <rect key="frame" x="0.0" y="882" width="428" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem id="Box-tK-BfC"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g1w-d1-doM"/>
                     </view>
                     <navigationItem key="navigationItem" id="xNX-4f-fG3"/>
-                    <connections>
-                        <outlet property="toolbar2" destination="Cm1-qR-V8U" id="Ktj-S0-sK8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -1591,7 +1579,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaxiFragmentTableViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-Z1-4Qi" customClass="TaxiFragmentViewTableViewCell" customModule="TourismAuthority" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaxiFragmentTableViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="VL0-Z1-4Qi" customClass="TaxiFragmentViewTableViewCell" customModule="TourismAuthority" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="725"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VL0-Z1-4Qi" id="eOk-vx-W1F">

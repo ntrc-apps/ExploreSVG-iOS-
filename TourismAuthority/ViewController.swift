@@ -14,117 +14,96 @@ import CoreLocation
 import MapboxNavigationNative
 import SwiftUI
  
-class ViewController: UIViewController, AnnotationInteractionDelegate{
+
+class ViewController: UIViewController {
     
-    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
-        
-        print("Annotations tapped: \(annotations)")
-    }
-    
-    let satelliteMapStyle = "mapbox://styles/ntrcsvg/cihng4ycb005m92jaeyqwtj87"
-     var mapView: MapView!
-    internal var cameraLocationConsumer: CameraLocationConsumer!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var leadingC: NSLayoutConstraint!
-    @IBOutlet weak var trailingC: NSLayoutConstraint!
-    @IBOutlet weak var toolbar1: UIToolbar!
-    @IBOutlet weak var toolbar3: UIToolbar!
-    @IBOutlet weak var toolbar2: UIToolbar!
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var bottomtoolbar: UIToolbar!
-    var menuOut = true
-    
-    struct location {
+    class Sites {
         var name: String? = nil
-        var description: String? = nil
-        var id: Int = 0
-        var siteType: Int = 0
-        var latitude: Double = 0.0
-        var longnitude: Double = 0.0
+        var sitedescription: String? = nil
+        var sitedescription2: String? = nil
+        var id: Int? = nil
+        var typeID: Int? = nil
+        var lat: Double? = nil
+        var lng: Double? = nil
         var image: String? = nil
     }
     
-    var locations: [location] = []
-    
-override func viewDidLoad() {
+    var sitelocation: [Sites] = []
+internal var mapView: MapView!
+internal var cameraLocationConsumer: CameraLocationConsumer!
+internal let toggleBearingImageButton: UIButton = UIButton(frame: .zero)
+internal var showsBearingImage: Bool = false {
+didSet {
+syncPuckAndButton()
+}
+}
+override public func viewDidLoad() {
 super.viewDidLoad()
     
+    ParseSiteData()
  
-    let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 11))
-    title = "Discover SVG"
-    
-   
-    mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
-    // Set the map’s center coordinate and zoom level.
-   
-    view.addSubview(mapView)
-    
-    let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-    
-    pointAnnotationManager.delegate = self
-    
-    
-    //mapView.st = URL(string: satelliteMapStyle)
-   
-    
-    cameraLocationConsumer = CameraLocationConsumer(mapView: mapView)
-    
-    mapView.location.options.puckType = .puck2D()
-
-    mapView.mapboxMap.onNext(.mapLoaded) { _ in
-    // Register the location consumer with the map
-    // Note that the location manager holds weak references to consumers, which should be retained
-    self.mapView.location.addLocationConsumer(newConsumer: self.cameraLocationConsumer)
-    }
-    
-    }
-    @IBAction func menuPress(_ sender: Any) {
-        print("This is working")
-        if (menuOut) {
-            
-            leadingC.constant = -220
-    
-        } else
-        {
-            
-            leadingC.constant = 0
-            
-           
-        }
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations:{
-            self.view.layoutIfNeeded()})
-        
-            menuOut = !menuOut
-        }
-
-    
-    
-        
-        
-    
-
-
-public class CameraLocationConsumer: LocationConsumer {
-weak var mapView: MapView?
+// Set initial camera settings
+let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 15.0))
  
-init(mapView: MapView) {
-self.mapView = mapView
-    
-    
+mapView = MapView(frame: view.bounds, mapInitOptions: options)
+mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+view.addSubview(mapView)
+ 
+// Setup and create button for toggling show bearing image
+setupToggleShowBearingImageButton()
+ 
+cameraLocationConsumer = CameraLocationConsumer(mapView: mapView)
+ 
+// Add user position icon to the map with location indicator layer
+mapView.location.options.puckType = .puck2D()
+ 
+// Allows the delegate to receive information about map events.
+mapView.mapboxMap.onNext(.mapLoaded) { _ in
+// Register the location consumer with the map
+// Note that the location manager holds weak references to consumers, which should be retained
+self.mapView.location.addLocationConsumer(newConsumer: self.cameraLocationConsumer)
+ 
+// Needed for internal testing purposes.
 }
-    
-public func locationUpdate(newLocation: Location) {
-    mapView?.mapboxMap.setCamera(
-to: CameraOptions(center: newLocation.coordinate))
 }
+ 
+@objc func showHideBearingImage() {
+showsBearingImage.toggle()
 }
+ 
+func syncPuckAndButton() {
+// Update puck config
+let configuration = Puck2DConfiguration.makeDefault(showBearing: showsBearingImage)
+ 
+mapView.location.options.puckType = .puck2D(configuration)
+ 
+// Update button title
+let title: String = showsBearingImage ? "Hide bearing image" : "Show bearing image"
+toggleBearingImageButton.setTitle(title, for: .normal)
+}
+ 
+private func setupToggleShowBearingImageButton() {
+// Styling
+toggleBearingImageButton.backgroundColor = .systemBlue
+toggleBearingImageButton.addTarget(self, action: #selector(showHideBearingImage), for: .touchUpInside)
+toggleBearingImageButton.setTitleColor(.white, for: .normal)
+syncPuckAndButton()
+toggleBearingImageButton.translatesAutoresizingMaskIntoConstraints = false
+view.addSubview(toggleBearingImageButton)
+ 
+// Constraints
+toggleBearingImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0).isActive = true
+toggleBearingImageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0).isActive = true
+toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100.0).isActive = true
+}
+
+ 
+// Create class which conforms to LocationConsumer, update the camera's centerCoordinate when a locationUpdate is received
+
     
-    func AnnotationsParseData(){
+    func ParseSiteData(){
         
-        let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-        
-        locations = []
+        sitelocation = []
 
     let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
         
@@ -148,28 +127,36 @@ to: CameraOptions(center: newLocation.coordinate))
         do {
                        //converting resonse to NSArray
             let data = try? Data(contentsOf: requestURL! as URL)
-            let locData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
-            print(locData)
+            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+            print(siteData)
             
-            for i in 0...locData.count-1{
-                let data = locData[i]
+            for i in 0...siteData.count-1{
+                let data = siteData[i]
                 
+                let NewLocation = Sites()
                 
-var newLocation = location()
+                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
                 
-                newLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
-                newLocation.name = (data as! NSDictionary)["sitename"] as? String
-                newLocation.description = (data as! NSDictionary)["description"] as? String
-                newLocation.latitude = Double(((data as! NSDictionary)["latitude"] as? String)!)!
-                newLocation.longnitude = Double(((data as! NSDictionary)["longitude"] as? String)!)!
-                newLocation.image = (data as! NSDictionary)["image_url"] as? String
-                newLocation.siteType = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
-    
+                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+                let ann = self.mapView.annotations.makePointAnnotationManager()
+                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+                ann.annotations = [customPointAnnotation]
+//                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+//                mapView.annotations(annotations)
+//                self.sitelocation.append(NewLocation)
+        
                 
             }
-          
-
-            
+        
             }
         catch{
                 do {
@@ -181,4 +168,19 @@ var newLocation = location()
     }
     session.resume()
     }
+
+    
+}
+public class CameraLocationConsumer: LocationConsumer {
+weak var mapView: MapView?
+ 
+init(mapView: MapView) {
+self.mapView = mapView
+}
+ 
+public func locationUpdate(newLocation: Location) {
+mapView?.camera.ease(
+to: CameraOptions(center: newLocation.coordinate, zoom: 10),
+duration: 1.3)
+}
 }
