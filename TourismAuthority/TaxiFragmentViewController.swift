@@ -10,22 +10,43 @@ import SwiftUI
 
 class TaxiFragmentViewTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var OperatorInfo: UITextView!
-    @IBOutlet weak var OperatorTitle: UIView!
-    
+
+    @IBOutlet weak var TitleLabel: UITextView!
+    @IBOutlet weak var TitleHolder: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        OperatorTitle.layer.cornerRadius = 5.0
-//        OperatorTitle.layer.masksToBounds = true
-        
-       
+        TitleHolder.layer.cornerRadius = 5.0
+        TitleHolder.layer.masksToBounds = true
     }
 }
 
 class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
     
+    struct TaxiOperator
+        {
+            var OperatorId: Int = 0
+            var OperatorName: String? = nil
+            var OperatorImage: String? = nil
+            var OperatorNumber: Int = 0
+        }
+
+    var TaxiOperators: [TaxiOperator] = []
+    
+    @IBOutlet weak var OperatorTable: UITableView!
+    @IBOutlet weak var MainView: UIView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(MainView)
+        
+//        TaxiFragmentParseData()
+//
+//        TaxiFragmentTableView.dataSource = self
+//        TaxiFragmentTableView.delegate = self
+//
+        title = "Taxi Operator"
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -33,6 +54,17 @@ class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
+        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
+        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
+        
+        
+        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
+////
+        return cell
+        
         
         return cell
     }
@@ -48,6 +80,7 @@ class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITab
     super.viewDidLoad()
         title = ""
     }
+    
     
     
 }
