@@ -94,11 +94,11 @@ view.addSubview(toggleBearingImageButton)
 // Constraints
 toggleBearingImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0).isActive = true
 toggleBearingImageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0).isActive = true
-toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100.0).isActive = true
+toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50.0).isActive = true
 }
 
  
-// Create class which conforms to LocationConsumer, update the camera's centerCoordinate when a locationUpdate is received
+
 
     
     func ParseSiteData(){
@@ -171,6 +171,8 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
 
     
 }
+
+// Create class which conforms to LocationConsumer, update the camera's centerCoordinate when a locationUpdate is received
 public class CameraLocationConsumer: LocationConsumer {
 weak var mapView: MapView?
  

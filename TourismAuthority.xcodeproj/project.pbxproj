@@ -372,7 +372,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4QL6962L5;
+				DEVELOPMENT_TEAM = 9J5M343MLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TourismAuthority/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
@@ -403,7 +403,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4QL6962L5;
+				DEVELOPMENT_TEAM = 9J5M343MLX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TourismAuthority/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
