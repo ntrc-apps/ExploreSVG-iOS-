@@ -7,36 +7,73 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
-class TourFragmentViewTableViewCell: UITableViewCell {
+//class TourFragmentViewTableViewCell: UITableViewCell {
+//
+//    @IBOutlet weak var DescriptionView: UITextView!
+//
+//    @IBOutlet weak var Titlename: UITextView!
+//    @IBOutlet weak var destination: UITextView!
+//    @IBOutlet weak var openinghours: UITextView!
+//    @IBOutlet weak var numberphone: UITextView!
+//    @IBOutlet weak var weblink: UITextView!
+//
+//    var nameTitle = ""
+//    var destinationtitle = ""
+//    var hours = ""
+//    var phonenumber = ""
+//    var linkweb = ""
+//
+//
+//    override func awakeFromNib() {
+//            super.awakeFromNib()
+//
+//        DescriptionView.layer.cornerRadius = 5.0
+//        DescriptionView.layer.masksToBounds = true
+//
+//        Titlename.text = nameTitle
+//        DescriptionView.text = destinationtitle
+//        openinghours.text = hours
+//        numberphone.text = phonenumber
+//        weblink.text = linkweb
+//}
 
-    @IBOutlet weak var DescriptionView: UITextView!
-    @IBOutlet weak var Title: UIView!
+
     
-    override func awakeFromNib() {
-            super.awakeFromNib()
-        
-        DescriptionView.layer.cornerRadius = 5.0
-        DescriptionView.layer.masksToBounds = true
-  
-}
-
-}
-    
-    class TourFragmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    class TourFragmentViewController: UIViewController{
 
         
         
-  
+        @IBOutlet weak var DescriptionView: UITextView!
+        
+        @IBOutlet weak var desimage: UIImageView!
+        @IBOutlet weak var Titlename: UITextView!
+        @IBOutlet weak var destination: UITextView!
+        @IBOutlet weak var openinghours: UITextView!
+        @IBOutlet weak var numberphone: UITextView!
+        @IBOutlet weak var weblink: UITextView!
+        
+        var desimages = UIImage()
+        var nameTitle = ""
+        var destinationtitle = ""
+        var hours = ""
+        var phonenumber = ""
+        var linkweb = ""
+        
         @IBOutlet weak var tourFragmentTableView: UITableView!
         
     override func viewDidLoad() {
     super.viewDidLoad()
+
+//        }
         
-    
-        tourFragmentTableView.delegate = self
-        tourFragmentTableView.dataSource = self
-        
+        Titlename.text = nameTitle
+        DescriptionView.text = destinationtitle
+        openinghours.text = hours
+        numberphone.text = phonenumber
+        weblink.text = linkweb
+        desimage.image = desimages
         
        
         
@@ -48,14 +85,15 @@ class TourFragmentViewTableViewCell: UITableViewCell {
         
     }
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell =  tourFragmentTableView.dequeueReusableCell(withIdentifier: "TourFragmentTableCell", for: indexPath)as!TourFragmentViewTableViewCell
-            
-            return cell
-        }
-}
+//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//            return 1
+//        }
+//
+//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//            let cell =  tourFragmentTableView.dequeueReusableCell(withIdentifier: "TourFragmentTableCell", for: indexPath)
+//
+//            return cell
+//        }
+//}
 
+    }

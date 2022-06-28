@@ -96,7 +96,8 @@ class WhatToDoViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "whattodoseg", sender: self)
+        //performSegue(withIdentifier: "whattodoseg", sender: self)
+        
     }
         
 

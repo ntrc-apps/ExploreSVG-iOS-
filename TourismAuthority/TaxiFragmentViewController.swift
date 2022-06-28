@@ -54,33 +54,33 @@ class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
-        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
-            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
-        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
-        
-        
-        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
-            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
-////
-        return cell
+//        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
+//        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+//            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
+//
+//
+//        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
+//////
+//        return cell
         
         
         return cell
     }
     
-    @IBOutlet weak var OperatorTable: UITableView!
+    //@IBOutlet weak var OperatorTable: UITableView!
     
  
-    override func viewDidLoad() {
-        
-        OperatorTable.delegate = self
-        OperatorTable.dataSource = self
-
-    super.viewDidLoad()
-        title = ""
-    }
-    
+//    override func viewDidLoad() {
+//
+//        OperatorTable.delegate = self
+//        OperatorTable.dataSource = self
+//
+//    super.viewDidLoad()
+//        title = ""
+//    }
+//
     
     
 }

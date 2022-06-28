@@ -33,6 +33,10 @@ class TourViewTableViewCell: UITableViewCell {
             var categoryId: Int = 0
             var categoryName: String? = nil
             var categoryImage: String? = nil
+            var categoryNum: String? = nil
+            var categoryHours: String? = nil
+            var categoryDesc: String? = nil
+            var categoryLink: String? = nil
             var displayid: Int = 0
         }
     
@@ -48,7 +52,6 @@ class TourViewTableViewCell: UITableViewCell {
     super.viewDidLoad()
         
         view.addSubview(mainView)
-        view.addSubview(toolbar3)
         ParseTourData()
        
 
@@ -84,8 +87,21 @@ class TourViewTableViewCell: UITableViewCell {
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "seg1", sender: self)
             
+            if let vc = storyboard?.instantiateViewController(identifier: "TourFragmentViewController") as? TourFragmentViewController{
+                
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourOperators.php")
+//                    let imageaddress = tour[indexPath.row].categoryImage
+//                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+//                vc.desimages.sd_setImage(with: imageURL! as URL )
+                vc.nameTitle = tour[indexPath.row].categoryName!
+                vc.destinationtitle = tour[indexPath.row].categoryDesc!
+                vc.hours = tour[indexPath.row].categoryHours!
+                vc.phonenumber = tour[indexPath.row].categoryNum!
+                vc.linkweb = tour[indexPath.row].categoryLink!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        
 }
 
         
@@ -133,6 +149,10 @@ class TourViewTableViewCell: UITableViewCell {
                 tourCat.categoryId = Int(((data as! NSDictionary)["tourguide_id"] as? String)!)!
                 tourCat.categoryName = (data as! NSDictionary)["tourguide_name"] as? String
                 tourCat.categoryImage = (data as! NSDictionary)["tourimageurl"] as? String
+                tourCat.categoryDesc = (data as! NSDictionary)["tourguide_desc"] as? String
+                tourCat.categoryLink = (data as! NSDictionary)["tourguide_link"] as? String
+                tourCat.categoryHours = (data as! NSDictionary)["tourguide_openhrs"] as? String
+                tourCat.categoryNum = (data as! NSDictionary)["tourguide_num"] as? String
                 //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
                 
                 
