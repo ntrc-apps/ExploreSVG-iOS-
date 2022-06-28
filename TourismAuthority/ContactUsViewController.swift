@@ -18,12 +18,12 @@ class ContactUsViewController: UIViewController{
         
     super.viewDidLoad()
         view.addSubview(mainview)
-        
+        print("make my shit straight bitch ass nigga")
         let layer = CAGradientLayer()
                layer.frame = view.bounds
                layer.colors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor, UIColor.link.cgColor]
                gradientview.layer.addSublayer(layer)
         
-        title = "Contact"
+        title = ""
     }
 }
