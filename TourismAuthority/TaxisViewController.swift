@@ -29,6 +29,8 @@ class TaxisViewController: UIViewController{
         var categoryName: String? = nil
         var categoryImage: String? = nil
         var displayid: Int = 0
+        var OperatorNumber: String? = nil
+        var OperatorLocation: String? = nil
     }
     @IBOutlet weak var mainview: UIView!
     @IBOutlet weak var taxitableview: UITableView!
@@ -125,6 +127,8 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
             taxiCat.categoryId = Int(((data as! NSDictionary)["taxi_id"] as? String)!)!
             taxiCat.categoryName = (data as! NSDictionary)["taxi_name"] as? String
             taxiCat.categoryImage = (data as! NSDictionary)["taxiimageurl"] as? String
+            taxiCat.OperatorLocation = (data as! NSDictionary)["taxi_location"] as? String
+            taxiCat.OperatorNumber = (data as! NSDictionary)["taxi_number"] as? String
             //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
             
             

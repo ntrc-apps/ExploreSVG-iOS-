@@ -8,22 +8,17 @@
 import UIKit
 import SwiftUI
 
-class TaxiFragmentViewTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var TitleLabel: UITextView!
+class TaxiFragmentViewController: UIViewController {
+    
+    
+    @IBOutlet weak var OpImage: UIImageView!
     @IBOutlet weak var TitleHolder: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
         
-        TitleHolder.layer.cornerRadius = 5.0
-        TitleHolder.layer.masksToBounds = true
-    }
-}
-
-class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
-    
+//        TitleHolder.layer.cornerRadius = 5.0
+//        TitleHolder.layer.masksToBounds = true
     struct TaxiOperator
         {
             var OperatorId: Int = 0
@@ -34,54 +29,105 @@ class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITab
 
     var TaxiOperators: [TaxiOperator] = []
     
-    @IBOutlet weak var OperatorTable: UITableView!
     @IBOutlet weak var MainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(MainView)
-        
-//        TaxiFragmentParseData()
+        TitleHolder.layer.cornerRadius = 5.0
+        TitleHolder.layer.masksToBounds = true
+        TaxiFragmentParseData()
 //
 //        TaxiFragmentTableView.dataSource = self
 //        TaxiFragmentTableView.delegate = self
 //
         title = "Taxi Operator"
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   
+    func TaxiFragmentParseData(){
         
-        let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
-        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
-            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
-        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
-        
-        
-        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
-            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
-////
-        return cell
-        
-        
-        return cell
-    }
-    
-    @IBOutlet weak var OperatorTable: UITableView!
-    
- 
-    override func viewDidLoad() {
-        
-        OperatorTable.delegate = self
-        OperatorTable.dataSource = self
+        TaxiOperators = []
 
-    super.viewDidLoad()
-        title = ""
+    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTaxis.php")
+        
+    //creating NSMutableURLRequest
+    let request = NSMutableURLRequest(url: requestURL! as URL)
+           
+           //setting the method to post
+    request.httpMethod = "POST"
+           
+           //creating a task to send the post request
+    let session = URLSession.shared.dataTask(with: request as URLRequest){
+               data, response, error in
+               
+               //exiting if there is some error
+               if error != nil{
+                   print("error is \(String(describing: error))")
+                   return;
+               }
+               
+               //parsing the response
+        do {
+                       //converting resonse to NSArray
+            let data = try? Data(contentsOf: requestURL! as URL)
+            let TaxiOperatorData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+            print(TaxiOperatorData)
+            
+            for i in 0...TaxiOperatorData.count-1{
+                let data = TaxiOperatorData[i]
+                
+                var TaxiOperators = TaxiOperator()
+                
+                //var getAttraction = data
+                TaxiOperators.OperatorName = (data as! NSDictionary)["taxi_name"] as? String
+                TaxiOperators.OperatorId = Int(((data as! NSDictionary)["taxi_id"] as? String)!)!
+                //WhatToDoList.ListId = Int(((data as! NSDictionary)["typeid"] as? String)!)!
+                TaxiOperators.OperatorNumber = Int(((data as! NSDictionary)["taxi_number"] as? String)!)!
+                TaxiOperators.OperatorImage = (data as! NSDictionary)["image_url"] as? String
+                //attractionCat.Listdisplayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+                
+                
+                self.TaxiOperators.append(TaxiOperators)
+                
+                
+            
+    //                let eachAttraction = data as! NSDictionary [String: Any]
+    //                let categoryId = eachAttraction["typeid"] as! Int
+    //                let categoryName = eachAttraction["sitedescription"] as? String
+    //                let categoryImage = UIImage(contentsOfFile: eachAttraction["image"] as! String)
+    //                let displayid = eachAttraction["display"] as! Int
+    //
+    //                self.attractions.append(attractionsCategory(categoryId: categoryId, categoryName: categoryName!, categoryImage: categoryImage!, displayid: displayid))
+    //
+                
+            }
+         }
     }
-    
-    
-    
-}
+        ///DispatchQueue.main.async {
+//                self.MainView.reloadData()
+//            }
+//
+//    //            for i in 0...locResponse.count-1 {
+//    //                let data = locResponse[i]
+//    //
+//    //                //var attractionsCategory = attractionsCategory(categoryId: Int, categoryName: String, categoryImage: String, displayid: Int)
+//    ////                attractionsCategory.categoryId = (data as! NSDictionary)["typeid"] as? Int
+//    ////                attractionsCategory.categoryName = (data as! NSDictionary)["sitedescription"] as? String
+//    ////                attractionsCategory.categoryImage = (data as! NSDictionary)["image"] as? String
+//
+//
+//
+//            }
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+    session.resume()
+        }
+    }
+
+  
 
