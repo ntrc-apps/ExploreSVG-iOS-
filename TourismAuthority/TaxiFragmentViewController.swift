@@ -24,17 +24,21 @@ class TaxiFragmentViewController: UIViewController {
             var OperatorId: Int = 0
             var OperatorName: String? = nil
             var OperatorImage: String? = nil
-            var OperatorNumber: Int = 0
+            var OperatorNumber: String? = nil
         }
 
     var TaxiOperators: [TaxiOperator] = []
     
+    @IBOutlet weak var WebTItle: UITextView!
+    @IBOutlet weak var PhoneTitle: UITextView!
     @IBOutlet weak var MainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(MainView)
-        TitleHolder.layer.cornerRadius = 5.0
-        TitleHolder.layer.masksToBounds = true
+       
+//        TitleHolder.layer.cornerRadius = 5.0
+//        TitleHolder.layer.masksToBounds = true
+//
         TaxiFragmentParseData()
 //
 //        TaxiFragmentTableView.dataSource = self
@@ -81,7 +85,7 @@ class TaxiFragmentViewController: UIViewController {
                 TaxiOperators.OperatorName = (data as! NSDictionary)["taxi_name"] as? String
                 TaxiOperators.OperatorId = Int(((data as! NSDictionary)["taxi_id"] as? String)!)!
                 //WhatToDoList.ListId = Int(((data as! NSDictionary)["typeid"] as? String)!)!
-                TaxiOperators.OperatorNumber = Int(((data as! NSDictionary)["taxi_number"] as? String)!)!
+                TaxiOperators.OperatorNumber = (data as! NSDictionary)["taxi_number"] as? String
                 TaxiOperators.OperatorImage = (data as! NSDictionary)["image_url"] as? String
                 //attractionCat.Listdisplayid = Int(((data as! NSDictionary)["display"] as? String)!)!
                 
