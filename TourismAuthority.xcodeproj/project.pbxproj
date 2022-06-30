@@ -21,6 +21,7 @@
 		8A94AA83281B231F00C32583 /* TaxisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA82281B231F00C32583 /* TaxisViewController.swift */; };
 		8A94AA85281B248D00C32583 /* TourOperatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA84281B248D00C32583 /* TourOperatorsViewController.swift */; };
 		8A94AA87281B25BF00C32583 /* AccommodationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA86281B25BF00C32583 /* AccommodationsViewController.swift */; };
+		8AADCDBC286C840300C594B3 /* AccommodationsFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AADCDBB286C840300C594B3 /* AccommodationsFragmentViewController.swift */; };
 		8ADB7212285B738300AA855F /* WhatToDoFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */; };
 		8AF3A802282428F10056C637 /* TaxiFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */; };
 		8AF3A804282429230056C637 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A803282429230056C637 /* ContactUsViewController.swift */; };
@@ -56,6 +57,7 @@
 		8A94AA82281B231F00C32583 /* TaxisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxisViewController.swift; sourceTree = "<group>"; };
 		8A94AA84281B248D00C32583 /* TourOperatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourOperatorsViewController.swift; sourceTree = "<group>"; };
 		8A94AA86281B25BF00C32583 /* AccommodationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationsViewController.swift; sourceTree = "<group>"; };
+		8AADCDBB286C840300C594B3 /* AccommodationsFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationsFragmentViewController.swift; sourceTree = "<group>"; };
 		8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoFragmentViewController.swift; sourceTree = "<group>"; };
 		8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFragmentViewController.swift; sourceTree = "<group>"; };
 		8AF3A803282429230056C637 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
@@ -104,17 +106,18 @@
 				8A859A5E28089C1B00029248 /* SceneDelegate.swift */,
 				8A859A6028089C1B00029248 /* ViewController.swift */,
 				8A6D828428182BAC006248E0 /* WhatToDoViewController.swift */,
-				8A94AA82281B231F00C32583 /* TaxisViewController.swift */,
+				8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */,
 				8A94AA84281B248D00C32583 /* TourOperatorsViewController.swift */,
+				8AF63F222860F31700D2F72D /* TourFragmentViewController.swift */,
 				8A94AA86281B25BF00C32583 /* AccommodationsViewController.swift */,
+				8AADCDBB286C840300C594B3 /* AccommodationsFragmentViewController.swift */,
+				8A94AA82281B231F00C32583 /* TaxisViewController.swift */,
 				8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */,
-				8AF3A803282429230056C637 /* ContactUsViewController.swift */,
 				8AF3A805282AEF400056C637 /* HomeViewController.swift */,
 				8AF95994283538EC00DCA8A5 /* HomeViewCollectionCell.swift */,
 				8AF959962837D4F600DCA8A5 /* ShareFeatureViewController.swift */,
-				8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */,
+				8AF3A803282429230056C637 /* ContactUsViewController.swift */,
 				8A859A6228089C1B00029248 /* Main.storyboard */,
-				8AF63F222860F31700D2F72D /* TourFragmentViewController.swift */,
 				8A859A6528089C1D00029248 /* Assets.xcassets */,
 				8A859A6728089C1D00029248 /* LaunchScreen.storyboard */,
 				8A859A6A28089C1D00029248 /* Info.plist */,
@@ -216,6 +219,7 @@
 				8AF63F232860F31700D2F72D /* TourFragmentViewController.swift in Sources */,
 				8A859A5D28089C1B00029248 /* AppDelegate.swift in Sources */,
 				8A94AA87281B25BF00C32583 /* AccommodationsViewController.swift in Sources */,
+				8AADCDBC286C840300C594B3 /* AccommodationsFragmentViewController.swift in Sources */,
 				8A94AA85281B248D00C32583 /* TourOperatorsViewController.swift in Sources */,
 				8AF3A806282AEF400056C637 /* HomeViewController.swift in Sources */,
 				8AF959972837D4F600DCA8A5 /* ShareFeatureViewController.swift in Sources */,

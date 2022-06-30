@@ -37,6 +37,9 @@ class AccommodationsViewController: UIViewController{
         var categoryId: Int = 0
         var categoryName: String? = nil
         var categoryImage: String? = nil
+        var categoryDesc: String? = nil
+        var categoryNum: String? = nil
+        var categoryDestination: String? = nil
         var displayid: Int = 0
     }
     
@@ -65,10 +68,21 @@ class AccommodationsViewController: UIViewController{
 extension AccommodationsViewController: UITableViewDelegate{
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped")
+        if let vc1 = storyboard?.instantiateViewController(identifier: "AccommodationsFragmentViewController") as? AccommodationsFragmentViewController{
+            
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourOperators.php")
+//                    let imageaddress = tour[indexPath.row].categoryImage
+//                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+//                vc.desimages.sd_setImage(with: imageURL! as URL )
+            //vc.nameTitle = accommodation[indexPath.row].categoryName!
+            vc1.destinationtitle = accommodation[indexPath.row].categoryDestination!
+            vc1.phonenumber = accommodation[indexPath.row].categoryNum!
+            vc1.desView = accommodation[indexPath.row].categoryDesc!
+            self.navigationController?.pushViewController(vc1, animated: true)
     }
         
 
+}
 }
 
 extension AccommodationsViewController: UITableViewDataSource{
@@ -92,9 +106,9 @@ extension AccommodationsViewController: UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
 
 
 func ParseAccommodationsData(){
@@ -135,6 +149,9 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
             //tourCat.categoryId = Int(((data as! NSDictionary)["tourguide_id"] as? String)!)!
             accommodationsCat.categoryName = (data as! NSDictionary)["sitename"] as? String
             accommodationsCat.categoryImage = (data as! NSDictionary)["image"] as? String
+            accommodationsCat.categoryDesc = (data as! NSDictionary)["sitedesc"] as? String
+            accommodationsCat.categoryNum = (data as! NSDictionary)["phone_one"] as? String
+            accommodationsCat.categoryDestination = (data as! NSDictionary)["address"] as? String
             //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
             
             
@@ -180,3 +197,4 @@ session.resume()
 }
 
 }
+

@@ -54,7 +54,7 @@ import SDWebImage
         @IBOutlet weak var numberphone: UITextView!
         @IBOutlet weak var weblink: UITextView!
         
-        var desimages = UIImage()
+        var desimages = ""
         var nameTitle = ""
         var destinationtitle = ""
         var hours = ""
@@ -73,7 +73,7 @@ import SDWebImage
         openinghours.text = hours
         numberphone.text = phonenumber
         weblink.text = linkweb
-        desimage.image = desimages
+        desimage.image = UIImage(named: desimages)
         
        
         
