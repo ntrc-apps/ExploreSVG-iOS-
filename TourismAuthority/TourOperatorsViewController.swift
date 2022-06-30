@@ -67,6 +67,7 @@ class TourViewTableViewCell: UITableViewCell {
     }
         
         
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return tour.count
         }
@@ -93,7 +94,7 @@ class TourViewTableViewCell: UITableViewCell {
                 let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourOperators.php")
                     let imageaddress = tour[indexPath.row].categoryImage
                 let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-                vc.desimages.sd_setImage(with: imageURL! as URL)
+//                vc.desimages.sd_setImage(with: imageURL! as URL)
                 vc.nameTitle = tour[indexPath.row].categoryName!
                 vc.destinationtitle = tour[indexPath.row].categoryDesc!
                 vc.hours = tour[indexPath.row].categoryHours!

@@ -21,13 +21,15 @@ class TaxisViewTableViewCell: UITableViewCell {
   
 }
 }
-class TaxisViewController: UIViewController{
+class TaxisViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     struct TaxiCategory
     {
         var categoryId: Int = 0
         var categoryName: String? = nil
         var categoryImage: String? = nil
+        var categoryNumber: String? = nil
+        var categoryLocation: String? = nil
         var displayid: Int = 0
     }
     @IBOutlet weak var mainview: UIView!
@@ -42,7 +44,6 @@ class TaxisViewController: UIViewController{
     super.viewDidLoad()
         
         view.addSubview(mainview)
-        view.addSubview(toolbar3)
         ParseTaxiData()
         
         taxitableview.delegate = self
@@ -55,29 +56,21 @@ class TaxisViewController: UIViewController{
         
         title = "Taxis"
     }
-}
-extension TaxisViewController: UITableViewDelegate{
+
+
    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       performSegue(withIdentifier: "seg2", sender: self)
-    }
-        
-
-}
-
-extension TaxisViewController: UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taxi.count
     }
+            
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = taxitableview.dequeueReusableCell(withIdentifier: "taxicell", for: indexPath)as!TaxisViewTableViewCell
-//
         let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTaxis.php")
             let imageaddress = taxi[indexPath.row].categoryImage
         let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-            cell.taxiImageHolder?.sd_setImage(with: imageURL! as URL )
+        cell.taxiImageHolder?.sd_setImage(with: imageURL! as URL )
+      
         
         
         //cell.imageholder?.image = attractions[indexPath.row].categoryImage
@@ -85,6 +78,21 @@ extension TaxisViewController: UITableViewDataSource{
 //
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "TaxiFragmentViewController") as? TaxiFragmentViewController {
+            
+            let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTaxis.php")
+                let imageaddress = taxi[indexPath.row].categoryImage
+            let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+//            vc.desimages.sd_setImage(with: imageURL! as URL)
+            vc.OperatorName = taxi[indexPath.row].categoryName!
+            vc.OperatorNumber = taxi[indexPath.row].categoryNumber!
+            vc.OperatorLocation = taxi[indexPath.row].categoryLocation!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+}
     
 
 func ParseTaxiData(){
@@ -124,6 +132,8 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
             //var getAttraction = data
             taxiCat.categoryId = Int(((data as! NSDictionary)["taxi_id"] as? String)!)!
             taxiCat.categoryName = (data as! NSDictionary)["taxi_name"] as? String
+            taxiCat.categoryNumber = (data as! NSDictionary)["taxi_number"] as? String
+            taxiCat.categoryLocation = (data as! NSDictionary)["taxi_location"] as? String
             taxiCat.categoryImage = (data as! NSDictionary)["taxiimageurl"] as? String
             //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
             

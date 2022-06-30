@@ -7,68 +7,92 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
-class TaxiFragmentViewTableViewCell: UITableViewCell {
+//class TaxiFragmentViewTableViewCell: UITableViewCell {
+//
+//
+//    @IBOutlet weak var TitleLabel: UITextView!
+//    @IBOutlet weak var TitleHolder: UIView!
+//
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//
+//        TitleHolder.layer.cornerRadius = 5.0
+//        TitleHolder.layer.masksToBounds = true
+//    }
+//}
 
-
-    @IBOutlet weak var TitleLabel: UITextView!
-    @IBOutlet weak var TitleHolder: UIView!
+class TaxiFragmentViewController: UIViewController {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+//    struct TaxiOperator
+//        {
+//            var OperatorId: Int = 0
+//            var OperatorName: String? = nil
+//            var OperatorImage: String? = nil
+//            var OperatorNumber: Int = 0
+//        }
+//
+//    var TaxiOperators: [TaxiOperator] = []
+//
+//    @IBOutlet weak var OperatorTable: UITableView!
+//    @IBOutlet weak var MainView: UIView!
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.addSubview()
+//
+////        TaxiFragmentParseData()
+////
+////        TaxiFragmentTableView.dataSource = self
+////        TaxiFragmentTableView.delegate = self
+
         
-        TitleHolder.layer.cornerRadius = 5.0
-        TitleHolder.layer.masksToBounds = true
-    }
-}
-
-class TaxiFragmentViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
+    @IBOutlet weak var DesImage: UIImageView!
+    @IBOutlet weak var TaxiName: UITextView!
+    @IBOutlet weak var number: UITextView!
+    @IBOutlet weak var WebTitle: UITextView!
     
-    struct TaxiOperator
-        {
-            var OperatorId: Int = 0
-            var OperatorName: String? = nil
-            var OperatorImage: String? = nil
-            var OperatorNumber: Int = 0
-        }
-
-    var TaxiOperators: [TaxiOperator] = []
+    var OperatorId = ""
+    var OperatorName = ""
+    var OperatorImage = ""
+    var OperatorNumber = ""
+    var OperatorWebsite = ""
+    var OperatorLocation = ""
     
-    @IBOutlet weak var OperatorTable: UITableView!
-    @IBOutlet weak var MainView: UIView!
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(MainView)
+    super.viewDidLoad()
         
-//        TaxiFragmentParseData()
-//
-//        TaxiFragmentTableView.dataSource = self
-//        TaxiFragmentTableView.delegate = self
-//
-        title = "Taxi Operator"
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        TaxiName.text = OperatorName
+        number.text = OperatorNumber
+        WebTitle.text = OperatorLocation
         
-        let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
-//        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
-//            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
-//        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-//            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
+        
+        
+////
+//        title = "Taxi Operator"
+    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell =  OperatorTable.dequeueReusableCell(withIdentifier: "TaxiFragmentTableViewCell", for: indexPath)as!TaxiFragmentViewTableViewCell
+////        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+////            let imageaddress = TaxiOperator[indexPath.row].OperatorImage
+////        let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+////            cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL! as URL )
+////
+////
+////        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+////            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
+////////
+////        return cell
 //
 //
-//        //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
-//            cell.WhatToDoFragmentTitleView?.text = WhatToDoList[indexPath.row].ListName
-//////
 //        return cell
-        
-        
-        return cell
-    }
-    
+//    }
+//
     //@IBOutlet weak var OperatorTable: UITableView!
     
  
