@@ -638,12 +638,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0X-ZQ-zbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="1298"/>
+            <point key="canvasLocation" x="1220" y="1101"/>
         </scene>
         <!--Share Feature View Controller-->
         <scene sceneID="Lcl-Xl-oM8">
             <objects>
-                <viewController id="N2v-Az-PBU" customClass="ShareFeatureViewController" customModule="TourismAuthority" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationDesc" id="N2v-Az-PBU" customClass="ShareFeatureViewController" customModule="TourismAuthority" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4M-7S-QVZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -661,6 +661,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="68"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="directions2" imagePlacement="top" subtitle="Directions" imagePadding="5"/>
+                                                <connections>
+                                                    <segue destination="Q2g-yH-2EM" kind="show" id="LUf-eH-E04"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aF-q4-zej" userLabel="Share">
                                                 <rect key="frame" x="356" y="0.0" width="72" height="68"/>
@@ -676,7 +679,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fkq-i9-iOe" secondAttribute="trailing" constant="20" symbolic="YES" id="LA5-E1-fVH"/>
                                             <constraint firstItem="fkq-i9-iOe" firstAttribute="top" secondItem="vQG-7b-YAe" secondAttribute="top" id="LYg-gc-cJ9"/>
                                             <constraint firstAttribute="bottom" secondItem="3aF-q4-zej" secondAttribute="bottom" constant="60" id="m6t-5A-8oJ"/>
-                                            <constraint firstItem="3aF-q4-zej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vQG-7b-YAe" secondAttribute="leading" symbolic="YES" id="rP7-9g-xY8"/>
+                                            <constraint firstItem="3aF-q4-zej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vQG-7b-YAe" secondAttribute="leading" constant="20" symbolic="YES" id="rP7-9g-xY8"/>
                                             <constraint firstItem="fkq-i9-iOe" firstAttribute="leading" secondItem="vQG-7b-YAe" secondAttribute="leading" id="y8i-KR-yTJ"/>
                                         </constraints>
                                     </view>
@@ -737,10 +740,32 @@
                             <constraint firstItem="1Mg-Mu-LK5" firstAttribute="leading" secondItem="0r3-AG-17j" secondAttribute="leading" id="ywd-E8-gKl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="directionsbutton" destination="fkq-i9-iOe" id="MBV-nD-ZLH"/>
+                        <outlet property="locImage" destination="Vco-8y-olA" id="RWE-De-tKL"/>
+                        <outlet property="sharebutton" destination="3aF-q4-zej" id="7it-ne-Vgv"/>
+                        <outlet property="sitedescription" destination="uyj-3O-Lvy" id="mCb-cW-hN1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efG-qU-1EH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2130.8411214953271" y="425.70194384449246"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="22y-hy-ooQ">
+            <objects>
+                <viewController id="Q2g-yH-2EM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sDE-Cm-bN4">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fID-T3-y0L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="upD-ch-4mM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9C-Se-8RU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2131" y="1101"/>
         </scene>
         <!--Taxis View Controller-->
         <scene sceneID="5g0-jg-3W3">
@@ -1279,7 +1304,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999998807907104" contentMode="scaleAspectFit" text="Phone Number" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-aB-GVM" userLabel="PhoneTitle">
-                                        <rect key="frame" x="80" y="679.66666666666663" width="268" height="32.333333333333371"/>
+                                        <rect key="frame" x="80" y="679.66666666666663" width="268" height="32.666666666666629"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32.5" id="yfT-o2-Npe"/>
                                         </constraints>
@@ -1288,16 +1313,16 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pil-yT-86Q" userLabel="PhoneIcon">
-                                        <rect key="frame" x="8" y="687" width="59" height="18"/>
+                                        <rect key="frame" x="8" y="687" width="59" height="18.666666666666629"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Tdg-2C-zxl" userLabel="locationIcon">
-                                        <rect key="frame" x="14" y="620" width="47" height="18.333333333333371"/>
+                                        <rect key="frame" x="14" y="620" width="47" height="18.666666666666629"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="siteimageplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="nZS-n7-HdN" userLabel="accImg">
                                         <rect key="frame" x="8" y="11" width="412" height="200"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999998807907104" contentMode="scaleAspectFit" text="Phone Number" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gwp-wA-CZ4" userLabel="DestiantionTitle">
-                                        <rect key="frame" x="70" y="619" width="268" height="44"/>
+                                        <rect key="frame" x="70" y="619" width="268" height="44.333333333333371"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

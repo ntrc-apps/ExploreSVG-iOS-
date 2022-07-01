@@ -15,7 +15,17 @@ import MapboxNavigationNative
 import SwiftUI
  
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AnnotationInteractionDelegate {
+    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Sites]) {
+       //let sitedesc2 = view.annotation?.sitedescription
+                
+        if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
+            
+            //vc2.sitedesc = sitedescription!
+        //vc2.phonenumber = accommodation[indexPath.row].categoryNum!
+            self.navigationController?.pushViewController(vc2, animated: true)
+    }
+    }
     
     class Sites {
         var name: String? = nil
@@ -48,6 +58,11 @@ let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 15.0))
 mapView = MapView(frame: view.bounds, mapInitOptions: options)
 mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 view.addSubview(mapView)
+    
+    let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+
+            // Make self the `AnnotationInteractionDelegate` to get called back on tap events
+            pointAnnotationManager.delegate = self
  
 // Setup and create button for toggling show bearing image
 setupToggleShowBearingImageButton()
@@ -95,6 +110,7 @@ view.addSubview(toggleBearingImageButton)
 toggleBearingImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0).isActive = true
 toggleBearingImageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0).isActive = true
 toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50.0).isActive = true
+    
 }
 
  

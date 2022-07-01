@@ -10,12 +10,18 @@ import SwiftUI
 
 class ShareFeatureViewController: UIViewController{
     
+    @IBOutlet weak var directionsbutton: UIButton!
+    @IBOutlet weak var sharebutton: UIButton!
+    @IBOutlet weak var sitedescription: UITextView!
+    @IBOutlet weak var locImage: UIImageView!
     
-        override func viewDidLoad() {
-     
-        
+    var sitedesc = ""
+    var locImg = ""
+    
+    override func viewDidLoad() {
     super.viewDidLoad()
         
+        sitedescription.text = sitedesc
         
     }
 }
