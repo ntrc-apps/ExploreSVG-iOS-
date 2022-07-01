@@ -50,11 +50,11 @@ class TaxiFragmentViewController: UIViewController {
     @IBOutlet weak var DesImage: UIImageView!
     @IBOutlet weak var TaxiName: UITextView!
     @IBOutlet weak var number: UITextView!
-    @IBOutlet weak var WebTitle: UITextView!
+    @IBOutlet weak var location: UITextView!
     
     var OperatorId = ""
     var OperatorName = ""
-    var OperatorImage = ""
+    var OperatorImage = UIImage.self()
     var OperatorNumber = ""
     var OperatorWebsite = ""
     var OperatorLocation = ""
@@ -64,7 +64,8 @@ class TaxiFragmentViewController: UIViewController {
         
         TaxiName.text = OperatorName
         number.text = OperatorNumber
-        WebTitle.text = OperatorLocation
+        location.text = OperatorLocation
+        DesImage.image = OperatorImage
         
         
         

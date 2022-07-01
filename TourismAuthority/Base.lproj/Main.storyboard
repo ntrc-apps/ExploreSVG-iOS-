@@ -1401,11 +1401,11 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-z5-usx" userLabel="webIcon">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-z5-usx" userLabel="LocIcon">
                                                         <rect key="frame" x="15" y="230" width="46" height="65"/>
                                                         <imageReference key="image" image="blue_marker_view" symbolScale="default"/>
                                                     </imageView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jnW-WA-NKL" userLabel="WebTitle">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jnW-WA-NKL" userLabel="Location">
                                                         <rect key="frame" x="87" y="245" width="321" height="50"/>
                                                         <color key="textColor" systemColor="tintColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
