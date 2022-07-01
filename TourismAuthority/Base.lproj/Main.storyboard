@@ -1304,7 +1304,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999998807907104" contentMode="scaleAspectFit" text="Phone Number" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-aB-GVM" userLabel="PhoneTitle">
-                                        <rect key="frame" x="80" y="679.66666666666663" width="268" height="32.666666666666629"/>
+                                        <rect key="frame" x="80" y="680" width="268" height="32.333333333333371"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32.5" id="yfT-o2-Npe"/>
                                         </constraints>
@@ -1406,14 +1406,11 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jnW-WA-NKL">
-                                                <rect key="frame" x="96" y="178" width="300" height="69"/>
+                                                <rect key="frame" x="96" y="178" width="300" height="46"/>
                                                 <color key="textColor" systemColor="tintColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_marker_view" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-Bo-YWY">
-                                                <rect key="frame" x="21" y="179" width="47" height="31"/>
-                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="md3-0T-m17" userLabel="PhoneIcon">
                                                 <rect key="frame" x="0.0" y="105.99999999999997" width="88" height="75.333333333333329"/>
                                             </imageView>
@@ -1441,6 +1438,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-Bo-YWY">
+                                                <rect key="frame" x="33" y="191" width="22" height="22"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1456,9 +1456,9 @@
                                             <constraint firstAttribute="bottom" secondItem="md3-0T-m17" secondAttribute="bottom" constant="233.00000000000006" id="EY7-ym-B8z"/>
                                             <constraint firstItem="fMN-fu-rcr" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="31" id="ITW-sO-fxN"/>
                                             <constraint firstItem="oOt-2v-gDe" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="96" id="Iqp-rk-g87"/>
-                                            <constraint firstAttribute="bottom" secondItem="jnW-WA-NKL" secondAttribute="bottom" constant="168" id="Kl1-hf-whk"/>
+                                            <constraint firstAttribute="bottom" secondItem="jnW-WA-NKL" secondAttribute="bottom" constant="191" id="Kl1-hf-whk"/>
                                             <constraint firstItem="md3-0T-m17" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" id="L8p-ZZ-wmU"/>
-                                            <constraint firstItem="LUM-Bo-YWY" firstAttribute="top" secondItem="w9g-Lg-olk" secondAttribute="top" constant="179" id="NAv-Oe-Zwl"/>
+                                            <constraint firstItem="LUM-Bo-YWY" firstAttribute="top" secondItem="w9g-Lg-olk" secondAttribute="top" constant="190" id="NAv-Oe-Zwl"/>
                                             <constraint firstItem="jnW-WA-NKL" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="96" id="NEO-8Y-Npw"/>
                                             <constraint firstItem="md3-0T-m17" firstAttribute="top" secondItem="w9g-Lg-olk" secondAttribute="top" constant="104.66666666666667" id="RaR-7q-F9D"/>
                                             <constraint firstItem="jhm-hj-xCI" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="20" id="Tlc-EJ-z3Y"/>
@@ -1467,8 +1467,8 @@
                                             <constraint firstAttribute="trailing" secondItem="fMN-fu-rcr" secondAttribute="trailing" constant="20" id="cNC-Qc-Dpv">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="31"/>
                                             </constraint>
-                                            <constraint firstItem="LUM-Bo-YWY" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="21" id="cpk-0U-e1Y"/>
-                                            <constraint firstAttribute="trailing" secondItem="LUM-Bo-YWY" secondAttribute="trailing" constant="360" id="dia-mY-bc8"/>
+                                            <constraint firstItem="LUM-Bo-YWY" firstAttribute="leading" secondItem="w9g-Lg-olk" secondAttribute="leading" constant="33" id="cpk-0U-e1Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="LUM-Bo-YWY" secondAttribute="trailing" constant="373" id="dia-mY-bc8"/>
                                             <constraint firstItem="Ig3-jT-fYC" firstAttribute="top" secondItem="w9g-Lg-olk" secondAttribute="top" id="jl8-rX-W7D"/>
                                             <constraint firstAttribute="bottom" secondItem="oOt-2v-gDe" secondAttribute="bottom" constant="245" id="jpp-ZZ-c8p"/>
                                             <constraint firstItem="oOt-2v-gDe" firstAttribute="top" secondItem="w9g-Lg-olk" secondAttribute="top" constant="129" id="nRY-8M-qSS"/>
@@ -1476,7 +1476,7 @@
                                             <constraint firstAttribute="bottom" secondItem="fMN-fu-rcr" secondAttribute="bottom" constant="275" id="qeG-yW-aTt">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="294"/>
                                             </constraint>
-                                            <constraint firstAttribute="bottom" secondItem="LUM-Bo-YWY" secondAttribute="bottom" constant="205" id="sRR-oE-ARt"/>
+                                            <constraint firstAttribute="bottom" secondItem="LUM-Bo-YWY" secondAttribute="bottom" constant="201.33333333333331" id="sRR-oE-ARt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1604,7 +1604,6 @@
     <resources>
         <image name="accommodations" width="25" height="25"/>
         <image name="attractions_svg6" width="1679" height="1086"/>
-        <image name="blue_marker_view" width="15" height="24"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="directions2" width="32" height="32"/>
