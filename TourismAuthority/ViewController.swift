@@ -16,7 +16,8 @@ import SwiftUI
  
 
 class ViewController: UIViewController, AnnotationInteractionDelegate {
-    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Sites]) {
+    
+    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
        //let sitedesc2 = view.annotation?.sitedescription
                 
         if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
