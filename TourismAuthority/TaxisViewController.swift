@@ -88,7 +88,7 @@ class TaxisViewController: UIViewController,UITableViewDelegate, UITableViewData
 //            let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
 //            vc.DesImage.sd_setImage(with: imageURL! as URL)
 //            let url = URL(string: "https://cert-manager.ntrcsvg.com/tourism/getTaxis.php")
-//            imageView.kf.setImage(with: url)
+           vc.imageURL = taxi[indexPath.row].categoryImage
             vc.OperatorName = taxi[indexPath.row].categoryName!
             vc.OperatorNumber = taxi[indexPath.row].categoryNumber!
             vc.OperatorLocation = taxi[indexPath.row].categoryLocation!

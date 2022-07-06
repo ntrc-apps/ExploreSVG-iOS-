@@ -54,7 +54,7 @@ class TaxiFragmentViewController: UIViewController {
     
     var OperatorId = ""
     var OperatorName = ""
-    var OperatorImage = UIImage.self()
+    var imageURL : String?
     var OperatorNumber = ""
     var OperatorWebsite = ""
     var OperatorLocation = ""
@@ -62,10 +62,14 @@ class TaxiFragmentViewController: UIViewController {
     override func viewDidLoad() {
     super.viewDidLoad()
         
+        
+        self.DesImage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
+                           print("image loaded")
+                       })
         TaxiName.text = OperatorName
         number.text = OperatorNumber
         location.text = OperatorLocation
-        DesImage.image = OperatorImage
+  
         
         
         

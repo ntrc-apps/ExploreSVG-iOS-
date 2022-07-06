@@ -9,44 +9,13 @@ import UIKit
 import SwiftUI
 import SDWebImage
 
-//class TourFragmentViewTableViewCell: UITableViewCell {
-//
-//    @IBOutlet weak var DescriptionView: UITextView!
-//
-//    @IBOutlet weak var Titlename: UITextView!
-//    @IBOutlet weak var destination: UITextView!
-//    @IBOutlet weak var openinghours: UITextView!
-//    @IBOutlet weak var numberphone: UITextView!
-//    @IBOutlet weak var weblink: UITextView!
-//
-//    var nameTitle = ""
-//    var destinationtitle = ""
-//    var hours = ""
-//    var phonenumber = ""
-//    var linkweb = ""
-//
-//
-//    override func awakeFromNib() {
-//            super.awakeFromNib()
-//
-//        DescriptionView.layer.cornerRadius = 5.0
-//        DescriptionView.layer.masksToBounds = true
-//
-//        Titlename.text = nameTitle
-//        DescriptionView.text = destinationtitle
-//        openinghours.text = hours
-//        numberphone.text = phonenumber
-//        weblink.text = linkweb
-//}
-
-
-    
     class TourFragmentViewController: UIViewController{
 
         
         
         @IBOutlet weak var DescriptionView: UITextView!
         
+        @IBOutlet weak var titleHolder: UIView!
         @IBOutlet weak var desimage: UIImageView!
         @IBOutlet weak var Titlename: UITextView!
         @IBOutlet weak var destination: UITextView!
@@ -54,28 +23,34 @@ import SDWebImage
         @IBOutlet weak var numberphone: UITextView!
         @IBOutlet weak var weblink: UITextView!
         
-        var desimages = ""
+        
+        var imageURL : String?
         var nameTitle = ""
         var destinationtitle = ""
         var hours = ""
         var phonenumber = ""
         var linkweb = ""
-        
-        @IBOutlet weak var tourFragmentTableView: UITableView!
+  
         
     override func viewDidLoad() {
     super.viewDidLoad()
 
 //        }
-        
+        self.desimage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
+                           print("image loaded")
+                       })
         Titlename.text = nameTitle
         DescriptionView.text = destinationtitle
         openinghours.text = hours
         numberphone.text = phonenumber
         weblink.text = linkweb
-        desimage.image = UIImage(named: desimages)
         
-       
+        DescriptionView.layer.cornerRadius = 5.0
+        DescriptionView.layer.masksToBounds = true
+
+        titleHolder.layer.cornerRadius = 5.0
+        titleHolder.layer.masksToBounds = true
+
         
 //        let layer = CAGradientLayer()
 //               layer.frame = view.bounds

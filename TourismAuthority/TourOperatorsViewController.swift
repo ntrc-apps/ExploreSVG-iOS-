@@ -91,10 +91,10 @@ class TourViewTableViewCell: UITableViewCell {
             
             if let vc = storyboard?.instantiateViewController(identifier: "TourFragmentViewController") as? TourFragmentViewController {
                 
-                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourOperators.php")
-                    let imageaddress = tour[indexPath.row].categoryImage
-                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
-//                vc.desimages.sd_setImage(with: imageURL! as URL)
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourOperators.php")
+//                    let imageaddress = tour[indexPath.row].categoryImage
+//                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
+                vc.imageURL = tour[indexPath.row].categoryImage
                 vc.nameTitle = tour[indexPath.row].categoryName!
                 vc.destinationtitle = tour[indexPath.row].categoryDesc!
                 vc.hours = tour[indexPath.row].categoryHours!
