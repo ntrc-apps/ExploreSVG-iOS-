@@ -75,6 +75,7 @@ extension AccommodationsViewController: UITableViewDelegate{
 //                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
 //                vc.desimages.sd_setImage(with: imageURL! as URL )
             //vc.nameTitle = accommodation[indexPath.row].categoryName!
+            vc1.imageURL = accommodation[indexPath.row].categoryImage
             vc1.destinationtitle = accommodation[indexPath.row].categoryDestination!
             vc1.phonenumber = accommodation[indexPath.row].categoryNum!
             vc1.desView = accommodation[indexPath.row].categoryDesc!

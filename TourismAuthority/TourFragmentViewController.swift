@@ -22,6 +22,7 @@ import SDWebImage
         @IBOutlet weak var openinghours: UITextView!
         @IBOutlet weak var numberphone: UITextView!
         @IBOutlet weak var weblink: UITextView!
+        @IBOutlet weak var location: UITextView!
         
         
         var imageURL : String?
@@ -30,6 +31,7 @@ import SDWebImage
         var hours = ""
         var phonenumber = ""
         var linkweb = ""
+        var loc = ""
   
         
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ import SDWebImage
         self.desimage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
                            print("image loaded")
                        })
+        location.text = loc
         Titlename.text = nameTitle
         DescriptionView.text = destinationtitle
         openinghours.text = hours

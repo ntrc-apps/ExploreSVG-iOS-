@@ -33,6 +33,7 @@ class TourViewTableViewCell: UITableViewCell {
             var categoryId: Int = 0
             var categoryName: String? = nil
             var categoryImage: String? = nil
+            var categoryLoc: String? = nil
             var categoryNum: String? = nil
             var categoryHours: String? = nil
             var categoryDesc: String? = nil
@@ -96,6 +97,7 @@ class TourViewTableViewCell: UITableViewCell {
 //                let imageURL = NSURL.init(string: imageaddress!, relativeTo: serverurl! as URL)
                 vc.imageURL = tour[indexPath.row].categoryImage
                 vc.nameTitle = tour[indexPath.row].categoryName!
+                vc.loc = tour[indexPath.row].categoryLoc!
                 vc.destinationtitle = tour[indexPath.row].categoryDesc!
                 vc.hours = tour[indexPath.row].categoryHours!
                 vc.phonenumber = tour[indexPath.row].categoryNum!
@@ -153,6 +155,7 @@ class TourViewTableViewCell: UITableViewCell {
                 tourCat.categoryDesc = (data as! NSDictionary)["tourguide_desc"] as? String
                 tourCat.categoryLink = (data as! NSDictionary)["tourguide_link"] as? String
                 tourCat.categoryHours = (data as! NSDictionary)["tourguide_openhrs"] as? String
+                tourCat.categoryLoc = (data as! NSDictionary)["tourguide_location"] as? String
                 tourCat.categoryNum = (data as! NSDictionary)["tourguide_num"] as? String
                 //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
                 

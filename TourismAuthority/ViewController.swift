@@ -19,14 +19,25 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
     
     func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
        //let sitedesc2 = view.annotation?.sitedescription
-                
+//        print("Annotations tapped")
+        
         if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
-            
-            //vc2.sitedesc = sitedescription!
-        //vc2.phonenumber = accommodation[indexPath.row].categoryNum!
+//
+//            //vc2.sitedesc = sitedescription!
+//        //vc2.phonenumber = accommodation[indexPath.row].categoryNum!
             self.navigationController?.pushViewController(vc2, animated: true)
     }
     }
+    
+    let AttractionMarkers = "Attraction Markers"
+    let BeachMarkers = "Beach Markers"
+    let ParkMarkers = "Park Markers"
+    let DivingMarkers = "Diving Markers"
+    let EcoMarkers = "Eco Markers"
+    let WaterfallMarkers = "Waterfall Markers"
+    let SpringMarkers = "Spring Markers"
+    let AccommodationMarkers = "Accommodation Markers"
+    
     
     class Sites {
         var name: String? = nil
@@ -51,7 +62,7 @@ syncPuckAndButton()
 override public func viewDidLoad() {
 super.viewDidLoad()
     
-    ParseSiteData()
+    ParseSiteData("")
  
 // Set initial camera settings
 let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 15.0))
@@ -60,10 +71,10 @@ mapView = MapView(frame: view.bounds, mapInitOptions: options)
 mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 view.addSubview(mapView)
     
-    let pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+    //let ann = mapView.annotations.makePointAnnotationManager()
 
             // Make self the `AnnotationInteractionDelegate` to get called back on tap events
-            pointAnnotationManager.delegate = self
+    
  
 // Setup and create button for toggling show bearing image
 setupToggleShowBearingImageButton()
@@ -118,9 +129,14 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
 
 
     
-    func ParseSiteData(){
+    func ParseSiteData(_ markerType: String){
+       
         
-        sitelocation = []
+       //switch markerType {
+            
+        //case AttractionMarkers:
+            
+            sitelocation = []
 
     let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
         
@@ -164,30 +180,491 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
                 
                 let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
                 let ann = self.mapView.annotations.makePointAnnotationManager()
-                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+                ann.delegate = self
+                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
                 customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
                 ann.annotations = [customPointAnnotation]
 //                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
 //                mapView.annotations(annotations)
 //                self.sitelocation.append(NewLocation)
-        
-                
             }
-        
-            }
+        }
+    
+            
         catch{
                 do {
                    print("error 2")
                }
            }
            //executing the task
-           
-    }
-    session.resume()
-    }
-
     
-}
+    }
+            
+//        case BeachMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//
+//        case ParkMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//
+//        case DivingMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//
+//        case EcoMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//
+//        case WaterfallMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//        case SpringMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+//    }
+//        case AccommodationMarkers:
+//
+//            sitelocation = []
+//
+//    let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//
+//    //creating NSMutableURLRequest
+//    let request = NSMutableURLRequest(url: requestURL! as URL)
+//
+//           //setting the method to post
+//    request.httpMethod = "POST"
+//
+//           //creating a task to send the post request
+//    let session = URLSession.shared.dataTask(with: request as URLRequest){
+//               data, response, error in
+//
+//               //exiting if there is some error
+//               if error != nil{
+//                   print("error is \(String(describing: error))")
+//                   return;
+//               }
+//
+//               //parsing the response
+//        do {
+//                       //converting resonse to NSArray
+//            let data = try? Data(contentsOf: requestURL! as URL)
+//            let siteData = try! JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! NSArray
+//            print(siteData)
+//
+//            for i in 0...siteData.count-1{
+//                let data = siteData[i]
+//
+//                let NewLocation = Sites()
+//
+//                NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
+//                NewLocation.name = (data as! NSDictionary)["sitename"] as? String
+//                NewLocation.lat = Double(((data as! NSDictionary)["latitude"] as? String)!)
+//                NewLocation.lng = Double(((data as! NSDictionary)["longitude"] as? String)!)
+//                NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
+//                NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
+//                NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
+//                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+//                //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
+//
+//                let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
+//                let ann = self.mapView.annotations.makePointAnnotationManager()
+//                var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates )
+//                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+//                ann.annotations = [customPointAnnotation]
+////                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
+////                mapView.annotations(annotations)
+////                self.sitelocation.append(NewLocation)
+//            }
+//        }
+//
+//
+//        catch{
+//                do {
+//                   print("error 2")
+//               }
+//           }
+//           //executing the task
+//
+    
+            
+    session.resume()
+      
+        }
+        
+        
+    }
+    
+  
+    
+
+
+
 
 // Create class which conforms to LocationConsumer, update the camera's centerCoordinate when a locationUpdate is received
 public class CameraLocationConsumer: LocationConsumer {
