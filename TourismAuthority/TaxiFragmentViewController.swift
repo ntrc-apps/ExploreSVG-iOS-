@@ -72,7 +72,7 @@ class TaxiFragmentViewController: UIViewController {
   
         
         
-        
+        title = "Taxis"
 ////
 //        title = "Taxi Operator"
     }

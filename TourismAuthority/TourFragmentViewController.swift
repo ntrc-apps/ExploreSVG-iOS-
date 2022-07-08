@@ -54,7 +54,7 @@ import SDWebImage
         titleHolder.layer.cornerRadius = 5.0
         titleHolder.layer.masksToBounds = true
 
-        
+        title = "Tours"
 //        let layer = CAGradientLayer()
 //               layer.frame = view.bounds
 //               layer.colors = [UIColor.white.cgColor,UIColor.white.cgColor, UIColor.link.cgColor]

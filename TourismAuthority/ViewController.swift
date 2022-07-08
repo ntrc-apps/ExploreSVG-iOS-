@@ -23,10 +23,12 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
         
         if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
 //
-//            //vc2.sitedesc = sitedescription!
+//            vc2.sitedesc = sitedescription
 //        //vc2.phonenumber = accommodation[indexPath.row].categoryNum!
+    
+            
             self.navigationController?.pushViewController(vc2, animated: true)
-    }
+        }
     }
     
     let AttractionMarkers = "Attraction Markers"
@@ -38,6 +40,17 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
     let SpringMarkers = "Spring Markers"
     let AccommodationMarkers = "Accommodation Markers"
     
+    
+//    class Sites {
+//        var name: String? = nil
+//        var sitedescription: String? = nil
+//        var sitedescription2: String? = nil
+//        var id: Int? = nil
+//        var typeID: Int? = nil
+//        var lat: Double? = nil
+//        var lng: Double? = nil
+//        var image: String? = nil
+//    }
     
     class Sites {
         var name: String? = nil
@@ -51,63 +64,64 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
     }
     
     var sitelocation: [Sites] = []
-internal var mapView: MapView!
-internal var cameraLocationConsumer: CameraLocationConsumer!
-internal let toggleBearingImageButton: UIButton = UIButton(frame: .zero)
-internal var showsBearingImage: Bool = false {
-didSet {
-syncPuckAndButton()
-}
-}
-override public func viewDidLoad() {
-super.viewDidLoad()
+    internal var mapView: MapView!
+    internal var cameraLocationConsumer: CameraLocationConsumer!
+    internal let toggleBearingImageButton: UIButton = UIButton(frame: .zero)
+    internal var showsBearingImage: Bool = false {
+        didSet {
+            syncPuckAndButton()
+        }
+    }
     
-    ParseSiteData("")
- 
-// Set initial camera settings
-let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 15.0))
- 
-mapView = MapView(frame: view.bounds, mapInitOptions: options)
-mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-view.addSubview(mapView)
+    override public func viewDidLoad() {
+        super.viewDidLoad()
     
-    //let ann = mapView.annotations.makePointAnnotationManager()
+        ParseSiteData("")
+ 
+        // Set initial camera settings
+        let options = MapInitOptions(cameraOptions: CameraOptions(zoom: 15.0))
+         
+        mapView = MapView(frame: view.bounds, mapInitOptions: options)
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(mapView)
+            
+            //let ann = mapView.annotations.makePointAnnotationManager()
 
-            // Make self the `AnnotationInteractionDelegate` to get called back on tap events
-    
+                    // Make self the `AnnotationInteractionDelegate` to get called back on tap events
+            
+         
+        // Setup and create button for toggling show bearing image
+        setupToggleShowBearingImageButton()
+         
+        cameraLocationConsumer = CameraLocationConsumer(mapView: mapView)
+         
+        // Add user position icon to the map with location indicator layer
+        mapView.location.options.puckType = .puck2D()
+         
+        // Allows the delegate to receive information about map events.
+        mapView.mapboxMap.onNext(.mapLoaded) { _ in
+            // Register the location consumer with the map
+            // Note that the location manager holds weak references to consumers, which should be retained
+            self.mapView.location.addLocationConsumer(newConsumer: self.cameraLocationConsumer)
+             
+            // Needed for internal testing purposes.
+        }
+    }
  
-// Setup and create button for toggling show bearing image
-setupToggleShowBearingImageButton()
+    @objc func showHideBearingImage() {
+        showsBearingImage.toggle()
+    }
  
-cameraLocationConsumer = CameraLocationConsumer(mapView: mapView)
- 
-// Add user position icon to the map with location indicator layer
-mapView.location.options.puckType = .puck2D()
- 
-// Allows the delegate to receive information about map events.
-mapView.mapboxMap.onNext(.mapLoaded) { _ in
-// Register the location consumer with the map
-// Note that the location manager holds weak references to consumers, which should be retained
-self.mapView.location.addLocationConsumer(newConsumer: self.cameraLocationConsumer)
- 
-// Needed for internal testing purposes.
-}
-}
- 
-@objc func showHideBearingImage() {
-showsBearingImage.toggle()
-}
- 
-func syncPuckAndButton() {
-// Update puck config
-let configuration = Puck2DConfiguration.makeDefault(showBearing: showsBearingImage)
- 
-mapView.location.options.puckType = .puck2D(configuration)
- 
-// Update button title
-let title: String = showsBearingImage ? "Hide bearing image" : "Show bearing image"
-toggleBearingImageButton.setTitle(title, for: .normal)
-}
+    func syncPuckAndButton() {
+    // Update puck config
+    let configuration = Puck2DConfiguration.makeDefault(showBearing: showsBearingImage)
+     
+    mapView.location.options.puckType = .puck2D(configuration)
+     
+    // Update button title
+    let title: String = showsBearingImage ? "Hide bearing image" : "Show bearing image"
+    toggleBearingImageButton.setTitle(title, for: .normal)
+    }
  
 private func setupToggleShowBearingImageButton() {
 // Styling

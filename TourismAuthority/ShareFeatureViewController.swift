@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
 class ShareFeatureViewController: UIViewController{
     
@@ -16,11 +17,15 @@ class ShareFeatureViewController: UIViewController{
     @IBOutlet weak var locImage: UIImageView!
     
     var sitedesc = ""
-    var locImg = ""
+//    var locImg = ""
+    var imageURL : String?
     
     override func viewDidLoad() {
     super.viewDidLoad()
         
+        self.locImage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
+                           print("image loaded")
+                       })
         sitedescription.text = sitedesc
         
     }
