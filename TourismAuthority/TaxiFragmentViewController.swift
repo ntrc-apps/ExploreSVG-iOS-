@@ -51,6 +51,7 @@ class TaxiFragmentViewController: UIViewController {
     @IBOutlet weak var TaxiName: UITextView!
     @IBOutlet weak var number: UITextView!
     @IBOutlet weak var location: UITextView!
+    @IBOutlet weak var titleholder: UIView!
     
     var OperatorId = ""
     var OperatorName = ""
@@ -70,7 +71,8 @@ class TaxiFragmentViewController: UIViewController {
         number.text = OperatorNumber
         location.text = OperatorLocation
   
-        
+        titleholder.layer.cornerRadius = 5.0
+        titleholder.layer.masksToBounds = true
         
         title = "Taxis"
 ////

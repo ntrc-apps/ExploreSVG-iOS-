@@ -38,7 +38,7 @@ import SDWebImage
     super.viewDidLoad()
 
 //        }
-        self.desimage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
+        self.desimage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "ntrclogofinal.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
                            print("image loaded")
                        })
         location.text = loc
@@ -48,7 +48,7 @@ import SDWebImage
         numberphone.text = phonenumber
         weblink.text = linkweb
         
-        DescriptionView.layer.cornerRadius = 5.0
+        DescriptionView.layer.cornerRadius = 10.0
         DescriptionView.layer.masksToBounds = true
 
         titleHolder.layer.cornerRadius = 5.0

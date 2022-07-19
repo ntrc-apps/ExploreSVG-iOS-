@@ -18,7 +18,7 @@ class ContactUsViewController: UIViewController{
         
     super.viewDidLoad()
         view.addSubview(mainview)
-        print("make my shit straight bitch ass nigga")
+        print("")
         let layer = CAGradientLayer()
                layer.frame = view.bounds
                layer.colors = [UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor,UIColor.white.cgColor, UIColor.link.cgColor]

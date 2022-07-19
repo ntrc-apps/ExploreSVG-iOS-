@@ -4,7 +4,7 @@
 //
 //  Created by Chavez Bobb on 4/26/22.
 //
-
+import Foundation
 import UIKit
 import SwiftUI
 import SDWebImage
@@ -96,11 +96,144 @@ class WhatToDoViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "whattodoseg", sender: self)
+        performSegue(withIdentifier: "whattodoseg", sender: self)
         
+//        if (attractions[indexPath.row].categoryId == 1){
+//
+//
+//         let vc1 = storyboard?.instantiateViewController(identifier: "WhatToDoFragmentViewController") as? WhatToDoFragmentViewController
+//        do {
+//        ////
+////
+////                        let cell = vc1.WhatToDoFragmentTableView!.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath)as!WhatToDoFragmentTableViewCell
+////                        let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+////                        let imgadd = vc1.WhatToDoList[indexPath.row].ListBackgroudImage
+////                        let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+////                        cell.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+////
+////
+////                        cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+////                        cell.WhatToDoFragmentTitleView?.text = vc1.WhatToDoList[indexPath.row].ListName
+////
+////
+//            let cell = vc1!.WhatToDoFragmentTableView?.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath) as? WhatToDoFragmentTableViewCell
+//
+//
+//            let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//                let imgadd = vc1!.WhatToDoList[indexPath.row].ListBackgroudImage
+//            let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+//                cell?.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+//
+//
+//            //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//                cell?.WhatToDoFragmentTitleView?.text = vc1!.WhatToDoList[indexPath.row].ListName
+//
+//
+//                //let x = vc1.WhatToDoList[indexPath.row].ListSiteDescription1
+//            }
+//
+//
+//                self.navigationController?.pushViewController(vc1!, animated: true)
+//    }
+  //  }
     }
+//            else if indexPath.row == 2 {
+//
+//                let cell1 = vc1.WhatToDoFragmentTableView?.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath) as? WhatToDoFragmentTableViewCell
+//                //let x = vc1.WhatToDoList[indexPath.row].ListSiteDescription1
+//                if vc1.WhatToDoList[indexPath.row].ListSiteTypeId == 2 {
+//
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//                let imgadd = vc1.WhatToDoList[indexPath.row].ListBackgroudImage
+//                let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+//                cell1?.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+//
+//
+//                //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//                cell1?.WhatToDoFragmentTitleView?.text = vc1.WhatToDoList[indexPath.row].ListName
+//                }
+//
+//                else {
+//                            cell1!.isHidden = true
+//
+//                           }
         
 
+            
+//            if attractions[indexPath.row].categoryId == 2 {
+//
+//                let cell1 = vc1.WhatToDoFragmentTableView?.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath) as? WhatToDoFragmentTableViewCell
+//
+//            if vc1.WhatToDoList[indexPath.row].ListSiteTypeId == 2 {
+//
+//
+//
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//                let imgadd = vc1.WhatToDoList[indexPath.row].ListBackgroudImage
+//                let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+//                cell1!.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+//
+//
+//                //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//                cell1!.WhatToDoFragmentTitleView?.text = vc1.WhatToDoList[indexPath.row].ListName
+//            }
+//            else {
+//                cell1!.isHidden = true
+//
+//            }
+//    }
+//            if attractions[indexPath.row].categoryId == 6 {
+//
+//                let cell1 = vc1.WhatToDoFragmentTableView?.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath) as? WhatToDoFragmentTableViewCell
+//
+//            if vc1.WhatToDoList[indexPath.row].ListSiteTypeId == 6 {
+//
+//
+//
+//                let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//                let imgadd = vc1.WhatToDoList[indexPath.row].ListBackgroudImage
+//                let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+//                cell1!.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+//
+//
+//                //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//                cell1!.WhatToDoFragmentTitleView?.text = vc1.WhatToDoList[indexPath.row].ListName
+//            }
+//            else {
+//                cell1!.isHidden = true
+//
+//            }
+            
+
+    
+
+                
+//            else if indexPath.row == 2 {
+//
+//                let cell1 = vc1.WhatToDoFragmentTableView?.dequeueReusableCell(withIdentifier: "WhatToDoFragmentTableViewCell", for: indexPath)as!WhatToDoFragmentTableViewCell
+//
+//                if vc1.WhatToDoList[indexPath.row].ListSiteTypeId == 2 {
+//
+//
+//
+//                    let serverurl=NSURL(string: "https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
+//                    let imgadd = vc1.WhatToDoList[indexPath.row].ListBackgroudImage
+//                    let imageURL = NSURL.init(string: imgadd!, relativeTo: serverurl! as URL)
+//                    cell1.WhatToDoFragmentBackgroundImage?.sd_setImage(with: imageURL as? URL, placeholderImage: UIImage(named: "ntrclogofinal.png"))
+//
+//
+//                    //cell.WhatToDoFragmentBackgroundImage?.image = WhatToDoList[indexPath.row].ListBackgroudImage
+//                   cell1.WhatToDoFragmentTitleView?.text = vc1.WhatToDoList[indexPath.row].ListName
+//                }
+//                else {
+//                    cell1.isHidden = true
+//
+//                }
+//        }
+//            self.navigationController?.pushViewController(vc1, animated: true)
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return attractions.count
@@ -208,5 +341,8 @@ class WhatToDoViewController: UIViewController,UITableViewDataSource,UITableView
     session.resume()
     }
 
+
+
 }
+
 

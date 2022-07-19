@@ -11,22 +11,32 @@ import SDWebImage
 
 class ShareFeatureViewController: UIViewController{
     
-    @IBOutlet weak var directionsbutton: UIButton!
+    
+    
+    @IBAction func directionsButton(_ sender: UIButton) {
+        print("tapped")
+        }
+        
+    
+    @IBOutlet weak var SiteTitle: UITextField!
     @IBOutlet weak var sharebutton: UIButton!
     @IBOutlet weak var sitedescription: UITextView!
     @IBOutlet weak var locImage: UIImageView!
     
     var sitedesc = ""
-//    var locImg = ""
-    var imageURL : String?
+    var siteTite = ""
+    var imageURL : String? = ""
     
     override func viewDidLoad() {
     super.viewDidLoad()
+     
         
-        self.locImage.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
+        self.locImage?.sd_setImage(with: URL(string:imageURL!), placeholderImage: UIImage(named: "placeholder.png"),options: SDWebImageOptions(), completed: {(image, error, cacheType, imageURL) -> Void in
                            print("image loaded")
                        })
         sitedescription.text = sitedesc
+        SiteTitle.text = siteTite
         
+        title = "What To Do"
     }
 }

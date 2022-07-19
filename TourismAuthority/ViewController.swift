@@ -4,32 +4,20 @@
 //
 //  Created by Chavez Bobb on 4/14/22.
 //
-
+import Foundation
 import UIKit
 import MapboxMaps
 import MapboxDirections
 import MapboxCoreNavigation
 import MapboxNavigation
-import CoreLocation
+//import MapboxCoreMaps
 import MapboxNavigationNative
 import SwiftUI
  
 
 class ViewController: UIViewController, AnnotationInteractionDelegate {
     
-    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
-       //let sitedesc2 = view.annotation?.sitedescription
-//        print("Annotations tapped")
-        
-        if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
-//
-//            vc2.sitedesc = sitedescription
-//        //vc2.phonenumber = accommodation[indexPath.row].categoryNum!
-    
-            
-            self.navigationController?.pushViewController(vc2, animated: true)
-        }
-    }
+
     
     let AttractionMarkers = "Attraction Markers"
     let BeachMarkers = "Beach Markers"
@@ -52,15 +40,15 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
 //        var image: String? = nil
 //    }
     
-    class Sites {
+    struct Sites {
         var name: String? = nil
-        var sitedescription: String? = nil
-        var sitedescription2: String? = nil
+        var sitedescription: String?
+        var sitedescription2: String? = ""
         var id: Int? = nil
         var typeID: Int? = nil
         var lat: Double? = nil
         var lng: Double? = nil
-        var image: String? = nil
+        var siteimage: String? = ""
     }
     
     var sitelocation: [Sites] = []
@@ -73,6 +61,22 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
         }
     }
     
+    func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
+       //let sitedesc2 = view.annotation?.sitedescription
+//        print("Annotations tapped")
+        
+        if let vc2 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
+
+            
+                       //error: constant 'destVC' used before being initialized
+//
+            vc2.imageURL = ViewController.Sites().siteimage
+            vc2.sitedesc = ViewController.Sites().sitedescription2!
+    
+            
+            self.navigationController?.pushViewController(vc2, animated: true)
+        }
+    }
     override public func viewDidLoad() {
         super.viewDidLoad()
     
@@ -85,11 +89,12 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(mapView)
             
+    
             //let ann = mapView.annotations.makePointAnnotationManager()
 
                     // Make self the `AnnotationInteractionDelegate` to get called back on tap events
             
-         
+        
         // Setup and create button for toggling show bearing image
         setupToggleShowBearingImageButton()
          
@@ -105,6 +110,7 @@ class ViewController: UIViewController, AnnotationInteractionDelegate {
             self.mapView.location.addLocationConsumer(newConsumer: self.cameraLocationConsumer)
              
             // Needed for internal testing purposes.
+           // self.finish()
         }
     }
  
@@ -180,7 +186,7 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
             for i in 0...siteData.count-1{
                 let data = siteData[i]
                 
-                let NewLocation = Sites()
+                var NewLocation = Sites()
                 
                 NewLocation.id = Int(((data as! NSDictionary)["siteid"] as? String)!)!
                 NewLocation.name = (data as! NSDictionary)["sitename"] as? String
@@ -189,21 +195,70 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
                 NewLocation.sitedescription = (data as! NSDictionary)["description"] as? String
                 NewLocation.typeID = Int(((data as! NSDictionary)["sitetypeid"] as? String)!)!
                 NewLocation.sitedescription2 = (data as! NSDictionary)["sitedescription"] as? String
-                NewLocation.image = (data as! NSDictionary)["image_url"] as? String
+                NewLocation.siteimage = (data as! NSDictionary)["image_url"] as? String
                 //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
                 
                 let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
                 let ann = self.mapView.annotations.makePointAnnotationManager()
                 ann.delegate = self
+                if NewLocation.typeID == 1 {
                 var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
-                customPointAnnotation.image = .init(image: UIImage(named: "whattodoicon")!, name: "whattodoicon")
+                customPointAnnotation.image = .init(image: UIImage(named: "attractionicon")!, name: "attractionicon")
+                
                 ann.annotations = [customPointAnnotation]
 //                let annotations = Point(CLLocationCoordinate2D(latitude: NewLocation.lat!, longitude: NewLocation.lng!))
 //                mapView.annotations(annotations)
 //                self.sitelocation.append(NewLocation)
             }
+                else if  NewLocation.typeID == 2 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "beachicon")!, name: "beachicon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 6 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "recreationalicon")!, name: "recreationalicon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 10 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "divingicon")!, name: "divingicon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 7 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "ecoadventureicon")!, name: "ecoadventureicon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 12 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "waterfall_icon")!, name: "abouticon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 13 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "abouticon")!, name: "abouticon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
         }
-    
+        }
             
         catch{
                 do {
