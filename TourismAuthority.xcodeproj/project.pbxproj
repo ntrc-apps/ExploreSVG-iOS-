@@ -21,9 +21,9 @@
 		8A94AA83281B231F00C32583 /* TaxisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA82281B231F00C32583 /* TaxisViewController.swift */; };
 		8A94AA85281B248D00C32583 /* TourOperatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA84281B248D00C32583 /* TourOperatorsViewController.swift */; };
 		8A94AA87281B25BF00C32583 /* AccommodationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94AA86281B25BF00C32583 /* AccommodationsViewController.swift */; };
+		8AA2A1A3288886BB00C2E643 /* WhatToDoFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA2A1A2288886BB00C2E643 /* WhatToDoFragmentViewController.swift */; };
 		8AADCDBC286C840300C594B3 /* AccommodationsFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AADCDBB286C840300C594B3 /* AccommodationsFragmentViewController.swift */; };
 		8AB89606287C5D5C00C06DF1 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB89605287C5D5C00C06DF1 /* DirectionsViewController.swift */; };
-		8ADB7212285B738300AA855F /* WhatToDoFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */; };
 		8AF3A802282428F10056C637 /* TaxiFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */; };
 		8AF3A804282429230056C637 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A803282429230056C637 /* ContactUsViewController.swift */; };
 		8AF3A806282AEF400056C637 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A805282AEF400056C637 /* HomeViewController.swift */; };
@@ -82,9 +82,9 @@
 		8AA2A1962881C71400C2E643 /* mapboxSound-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mapboxSound-Bridging-Header.h"; sourceTree = "<group>"; };
 		8AA2A1982881C71400C2E643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AA2A19A2881C71400C2E643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AA2A1A2288886BB00C2E643 /* WhatToDoFragmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatToDoFragmentViewController.swift; sourceTree = "<group>"; };
 		8AADCDBB286C840300C594B3 /* AccommodationsFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationsFragmentViewController.swift; sourceTree = "<group>"; };
 		8AB89605287C5D5C00C06DF1 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
-		8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoFragmentViewController.swift; sourceTree = "<group>"; };
 		8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFragmentViewController.swift; sourceTree = "<group>"; };
 		8AF3A803282429230056C637 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		8AF3A805282AEF400056C637 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -132,8 +132,9 @@
 				8A859A5C28089C1B00029248 /* AppDelegate.swift */,
 				8A859A5E28089C1B00029248 /* SceneDelegate.swift */,
 				8A859A6028089C1B00029248 /* ViewController.swift */,
+				8AB89605287C5D5C00C06DF1 /* DirectionsViewController.swift */,
 				8A6D828428182BAC006248E0 /* WhatToDoViewController.swift */,
-				8ADB7211285B738300AA855F /* WhatToDoFragmentViewController.swift */,
+				8AA2A1A2288886BB00C2E643 /* WhatToDoFragmentViewController.swift */,
 				8A94AA84281B248D00C32583 /* TourOperatorsViewController.swift */,
 				8AF63F222860F31700D2F72D /* TourFragmentViewController.swift */,
 				8A94AA86281B25BF00C32583 /* AccommodationsViewController.swift */,
@@ -142,7 +143,6 @@
 				8AF3A801282428F00056C637 /* TaxiFragmentViewController.swift */,
 				8AF3A805282AEF400056C637 /* HomeViewController.swift */,
 				8AF95994283538EC00DCA8A5 /* HomeViewCollectionCell.swift */,
-				8AB89605287C5D5C00C06DF1 /* DirectionsViewController.swift */,
 				8AF959962837D4F600DCA8A5 /* ShareFeatureViewController.swift */,
 				8AF3A803282429230056C637 /* ContactUsViewController.swift */,
 				8A859A6228089C1B00029248 /* Main.storyboard */,
@@ -305,10 +305,10 @@
 				8A94AA85281B248D00C32583 /* TourOperatorsViewController.swift in Sources */,
 				8AF3A806282AEF400056C637 /* HomeViewController.swift in Sources */,
 				8AF959972837D4F600DCA8A5 /* ShareFeatureViewController.swift in Sources */,
-				8ADB7212285B738300AA855F /* WhatToDoFragmentViewController.swift in Sources */,
 				8A6D828528182BAC006248E0 /* WhatToDoViewController.swift in Sources */,
 				8A859A5F28089C1B00029248 /* SceneDelegate.swift in Sources */,
 				8AB89606287C5D5C00C06DF1 /* DirectionsViewController.swift in Sources */,
+				8AA2A1A3288886BB00C2E643 /* WhatToDoFragmentViewController.swift in Sources */,
 				8A94AA83281B231F00C32583 /* TaxisViewController.swift in Sources */,
 				8AF3A804282429230056C637 /* ContactUsViewController.swift in Sources */,
 				8AF95995283538EC00DCA8A5 /* HomeViewCollectionCell.swift in Sources */,
@@ -471,6 +471,9 @@
 				DEVELOPMENT_TEAM = N4QL6962L5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TourismAuthority/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -503,6 +506,9 @@
 				DEVELOPMENT_TEAM = N4QL6962L5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TourismAuthority/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

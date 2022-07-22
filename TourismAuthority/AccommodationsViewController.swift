@@ -78,7 +78,8 @@ extension AccommodationsViewController: UITableViewDelegate{
             vc1.imageURL = accommodation[indexPath.row].categoryImage
             vc1.destinationtitle = accommodation[indexPath.row].categoryDestination!
             vc1.phonenumber = accommodation[indexPath.row].categoryNum!
-            vc1.desView = accommodation[indexPath.row].categoryDesc!
+                vc1.desView = accommodation[indexPath.row].categoryDesc!
+          
             self.navigationController?.pushViewController(vc1, animated: true)
     }
         

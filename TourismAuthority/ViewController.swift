@@ -201,6 +201,7 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
                 let lineCoordinates = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
                 let ann = self.mapView.annotations.makePointAnnotationManager()
                 ann.delegate = self
+                
                 if NewLocation.typeID == 1 {
                 var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
                 customPointAnnotation.image = .init(image: UIImage(named: "attractionicon")!, name: "attractionicon")
@@ -254,6 +255,14 @@ toggleBearingImageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGui
                 
                     var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
                     customPointAnnotation.image = .init(image: UIImage(named: "abouticon")!, name: "abouticon")
+                    
+                    ann.annotations = [customPointAnnotation]
+                }
+                
+                else if  NewLocation.typeID == 11 {
+                
+                    var customPointAnnotation = PointAnnotation(coordinate: lineCoordinates)
+                    customPointAnnotation.image = .init(image: UIImage(named: "accommodations-1")!, name: "accommodations-1")
                     
                     ann.annotations = [customPointAnnotation]
                 }

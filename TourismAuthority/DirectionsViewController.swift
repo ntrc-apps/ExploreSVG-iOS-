@@ -10,10 +10,11 @@ import UIKit
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
+import MapboxMaps
 import CoreLocation
 import SwiftUI
 
-class DirectionsViewController: UIViewController {
+class DirectionsViewController: UIViewController, CLLocationManagerDelegate {
     
     struct Sites {
         var name: String? = nil
@@ -27,18 +28,66 @@ class DirectionsViewController: UIViewController {
     }
     var sitelocation: [Sites] = []
 
- 
+var navigationMapView: NavigationMapView!
+    var mapView: MapView!
 var navigationViewController: NavigationViewController?
  
 override func viewDidLoad() {
 super.viewDidLoad()
  
-    ParsesDirectionsSiteData()
+    //ParsesDirectionsSiteData()
     
     
+//    let locationManager = CLLocationManager()
+//
+//    locationManager.requestAlwaysAuthorization()
+//    locationManager.requestLocation()
+//
+//    if CLLocationManager.locationServicesEnabled() {
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.startUpdatingLocation()
+//    }
+//
+//     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//
+//        if let location = locations.first {
+//            print(location.coordinate)
+//        }
+//    }
+    
+    let origin = CLLocationCoordinate2DMake()
+    let destination = CLLocationCoordinate2DMake(13.21553661854771, -61.21577147070738)
+    let options = NavigationRouteOptions(coordinates: [origin, destination])
+
+    Directions.shared.calculate(options) { [weak self] (_, result) in
+    switch result {
+    case .failure(let error):
+    print(error.localizedDescription)
+    case .success(let response):
+    guard let strongSelf = self else {
+    return
+    }
+
+    // For demonstration purposes, simulate locations if the Simulate Navigation option is on.
+    // Since first route is retrieved from response `routeIndex` is set to 0.
+    let navigationService = MapboxNavigationService(routeResponse: response, routeIndex: 0, routeOptions: options)
+    let navigationOptions = NavigationOptions(navigationService: navigationService)
+    let navigationViewController = NavigationViewController(for: response, routeIndex: 0, routeOptions: options, navigationOptions: navigationOptions)
+    navigationViewController.modalPresentationStyle = .fullScreen
+    // Render part of the route that has been traversed with full transparency, to give the illusion of a disappearing route.
+    navigationViewController.routeLineTracksTraversal = true
+
+    strongSelf.present(navigationViewController, animated: true, completion: nil)
+    }
+    }
 }
 
+    
 
+        
+   
+    
 func ParsesDirectionsSiteData(){
    
     
@@ -57,7 +106,7 @@ let request = NSMutableURLRequest(url: requestURL! as URL)
 request.httpMethod = "POST"
        
        //creating a task to send the post request
-let session = URLSession.shared.dataTask(with: request as URLRequest){
+    let session = URLSession.shared.dataTask(with: request as URLRequest){ [self]
            data, response, error in
            
            //exiting if there is some error
@@ -89,7 +138,7 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
             //tourCat.displayid = Int(((data as! NSDictionary)["display"] as? String)!)!
             
         
-            let origin = CLLocationCoordinate2DMake(13.150969852898431, -61.22326867480085)
+            let origin = CLLocationCoordinate2DMake(navigationMapView.mapView.location.latestLocation!.coordinate.latitude,navigationMapView.mapView.location.latestLocation!.coordinate.latitude)
             let destination = CLLocationCoordinate2DMake(NewLocation.lat!, NewLocation.lng!)
             let options = NavigationRouteOptions(coordinates: [origin, destination])
              

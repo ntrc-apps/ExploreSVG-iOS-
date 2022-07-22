@@ -9,6 +9,9 @@ import UIKit
 import SwiftUI
 import SDWebImage
 
+
+
+
 class WhatToDoFragmentTableViewCell: UITableViewCell {
 
     
@@ -40,7 +43,7 @@ class WhatToDoFragmentViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var titleatt: UITextView!
 
     
-    struct WhataToDoList
+    struct WhataToDoList: Codable
     {
         var ListId: Int = 0
         var ListSiteTypeId: Int = 0
@@ -51,8 +54,10 @@ class WhatToDoFragmentViewController: UIViewController, UITableViewDataSource, U
         var ListBackgroudImage: String? = nil
         var displayid: Int = 0
     }
+    var num: Int = 1
     @IBOutlet weak var gradient: UIView!
-    var WhatToDoList: [WhataToDoList] = []
+    var WhatToDoList : [WhataToDoList] = []
+ 
     @IBOutlet weak var TableViewHolder: UIView!
     @IBOutlet weak var GradientView: UIView!
     
@@ -77,6 +82,7 @@ class WhatToDoFragmentViewController: UIViewController, UITableViewDataSource, U
                    gradient.layer.addSublayer(layer)
                 title = "What To Do"
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc1 = storyboard?.instantiateViewController(identifier: "LocationDesc") as? ShareFeatureViewController{
             
@@ -96,7 +102,7 @@ class WhatToDoFragmentViewController: UIViewController, UITableViewDataSource, U
 
 }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WhatToDoList.count
+        return self.WhatToDoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,7 +133,7 @@ class WhatToDoFragmentViewController: UIViewController, UITableViewDataSource, U
 
 func WhatToDoFragmentParseData(){
     
-    WhatToDoList = []
+    //WhatToDoList = []
 
 let requestURL = NSURL(string:"https://cert-manager.ntrcsvg.com/tourism/getTourismSites.php")
     
@@ -142,10 +148,10 @@ let session = URLSession.shared.dataTask(with: request as URLRequest){
            data, response, error in
            
            //exiting if there is some error
-           if error != nil{
-               print("error is \(String(describing: error))")
-               return;
-           }
+//           if error != nil{
+//               print("error is \(String(describing: error))")
+//               return;
+//           }
            
            //parsing the response
     do {
